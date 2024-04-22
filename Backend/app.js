@@ -2,6 +2,7 @@ const experss = require("express");
 const authRoutes = require("./routes/authRoutes");
 const documentsRoutes = require("./routes/documentsRoutes");
 const mediaRoutes = require("./routes/mediaRoutes");
+const panelRoutes = require("./routes/panelRoutes");
 const db = require("./config/database");
 const cors = require("cors")
 const dotenv = require("dotenv");
@@ -24,6 +25,7 @@ app.use(cors("origin", "*"));
 app.use("/api/v2/auth", authRoutes);
 app.use("/api/v2/documents", documentsRoutes);
 app.use("/api/v2/media", mediaRoutes);
+app.use("/api/v2/admin", panelRoutes);
 
 // Middle wares
 app.use(errorMiddleware);

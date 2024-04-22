@@ -840,7 +840,7 @@ app.post("/api/salary", async (req, res) => {
 app.get("/api/salary", async (req, res) => {
   try {
     const [rows, fields] = await con.promise().query("SELECT *  FROM faculty_salary");
-    res.json(rows);
+    res.json({salaries:rows});
     // console.log(rows);
   } catch (error) {
     console.error(error);

@@ -34,7 +34,7 @@ const academics = [
   { name: "Results", href: "/result" },
 ];
 const admin = [
-  { name: "Software Login", href: "/" },
+  { name: "Software Login", href: "https://tech.gnkschool.info" },
   { name: "Website Login", href: "/signin" },
 ];
 

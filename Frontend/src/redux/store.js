@@ -7,11 +7,15 @@ import storage from "redux-persist/lib/storage";
 import userReducer from "./userSlice";
 import documentReducer from "./documentsSlice";
 import carouselReducer from "./carouselSlice";
+import facultiesReducer from "./facultiesSlice";
+import salariesReducer from "./salariesSlice";
 
 const rootReducer = combineReducers({
   user: userReducer,
   documents: documentReducer,
   carousels: carouselReducer,
+  faculties:facultiesReducer,
+  salaries:salariesReducer
 });
 
 const persistConfig = {

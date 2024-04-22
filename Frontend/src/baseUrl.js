@@ -1,1 +1,1 @@
-export const baseUrl = 'https://api.gnkschool.info'
+export const baseUrl = 'http://localhost:5000'
