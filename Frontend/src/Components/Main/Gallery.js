@@ -16,8 +16,9 @@ function Gallery() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${baseUrl}/images`);
-            setFiles(response.data.reverse());
+            const response = await axios.get(`${baseUrl}/api/v2/media/gallery`);
+            console.log(response);
+            setFiles(response.data.images.reverse());
             setLoading(false);
         } catch (error) {
             console.error(error);
@@ -38,13 +39,13 @@ function Gallery() {
         setCurrentIndex(nextIndex);
     };
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+    // if (loading) {
+    //     return <div>Loading...</div>;
+    // }
 
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
+    // if (error) {
+    //     return <div>Error: {error}</div>;
+    // }
 
     return (
         <div className='mb-10'>

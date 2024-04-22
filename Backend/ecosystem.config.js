@@ -1,8 +1,8 @@
 module.exports ={
     apps:[
         {
-            name:'gurunanakWebsite',
-            script:'server.js',
+            name:'gnkwebsite',
+            script:'AcceptFile2.js',
             instances:1,
             watch:true,
             autorestart:true,

@@ -103,6 +103,27 @@ exports.getCarousels = catchAsyncErrors(async (req, res, next) => {
     res.status(500).json({ error: error.message });
   }
 });
+exports.getGalleryImages = catchAsyncErrors(async (req, res, next) => {
+
+  try {
+    const query = `SELECT * FROM images;`;
+
+    db.query(query, (err, results) => {
+      if (err) {
+        console.log(err);
+        return res.status(500).json({ error: "Error fetching carousels" });
+      }
+
+      if (!results || results.length === 0) {
+        return res.status(404).json({ message: "No carousels found" });
+      }
+      res.status(200).json({ images: results });
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: error.message });
+  }
+});
 
 
 exports.deleteDocumentByTypeAndId = catchAsyncErrors(async (req, res, next) => {
