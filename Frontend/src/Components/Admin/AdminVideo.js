@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import AdminPageLayout from "./AdminPageLayout"
 import { baseUrl } from '../../baseUrl';
+import { Confirmation } from "../Confirmation";
 export default function AdminVideo() {
     const [data, setData] = useState([]);
+    const [id, setId] = useState();
 
     useEffect(() => {
         fetchData();
@@ -11,9 +14,8 @@ export default function AdminVideo() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${baseUrl}/api/showvideo`);
-            console.log('Response from backend:', response.data[0]);
-            setData(response.data[0]);
+            const response = await axios.get(`${baseUrl}/api/v2/media/videos`);
+            setData(response.data.videos);
         } catch (error) {
             console.error('Error fetching data:', error);
 
@@ -22,7 +24,8 @@ export default function AdminVideo() {
 
     const handledelete = async (id) => {
         try {
-            await axios.delete(`${baseUrl}/api/showvideo/${id}`);
+            window.alert("Are you sure ? Want to delete Videos link? ")
+            await axios.delete(`${baseUrl}/api/v2/media/deletevideo/${id}`);
         }
         catch(err){
             console.log(err);
@@ -34,9 +37,16 @@ export default function AdminVideo() {
             <div><AdminPageLayout /></div>
 
             <div className='w-full'>
+                <div className='lg:flex justify-around'>
                 <h2 className="text-3xl my-5 text-center text-blue font-bold tracking-tight sm:text-4xl">
                     <span className='text-orange'>Our</span> Videos
                 </h2>
+                <Link to="/uploadvideo">
+                    <div className="inline-block mt-7 align-baseline border border-orange py-2 px-8 rounded font-bold text-sm text-white bg-orange "a>
+                    Upload Video
+                </div>
+                </Link>
+                </div>
 
                 <div className='flex w-full justify-center items-center'>
                     <ul className='m-3 shadow p-5 rounded-lg sm:w-full md:w-full lg:max-w-7xl'>
@@ -57,7 +67,7 @@ export default function AdminVideo() {
                                     <a className="inline-block me-3 align-baseline border border-orange py-2 px-8 rounded font-bold text-sm text-orange hover:bg-orange hover:text-white" href={item.videolink}>
                                         Play
                                     </a>
-                                    <button onClick={() => handledelete(item.id)} className="inline-block align-baseline border border-orange py-2 px-8 rounded font-bold text-sm text-white bg-orange " href={item.videolink}>
+                                    <button onClick={() =>setId(item.id)} className="inline-block align-baseline border border-orange py-2 px-8 rounded font-bold text-sm text-white bg-orange " href={item.videolink}>
                                         Delete
                                     </button>
                                 </div>
@@ -68,6 +78,7 @@ export default function AdminVideo() {
                     </ul>
                 </div>
             </div>
+            {id && <Confirmation id={id} docType="videos" isClose={()=>setId(null)}/>}
         </div>
 
 

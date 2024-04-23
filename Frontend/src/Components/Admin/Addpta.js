@@ -1,66 +1,112 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import AdminPageLayout from './AdminPageLayout';
-import { baseUrl } from '../../baseUrl';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import AdminPageLayout from "./AdminPageLayout";
+import { baseUrl } from "../../baseUrl";
+import { useDispatch, useSelector } from "react-redux";
+import { createEntryPTA } from "../../Actions/panel";
+import { useFormik } from "formik";
+import ErrorAlert from "../ErrorAlert";
+import SuccessAlert from "../SuccessAlert";
+import Spinner from "../Spinner";
+import * as Yup from "yup";
+import { clearErrors, clearMessage } from "../../redux/managementSlice";
 export default function Addpta() {
-  const [name, setName] = useState('');
-  const [designation, setDesignation] = useState('');
+  const { loading, error, message } = useSelector((state) => state.management);
+  const token = localStorage.getItem("token");
+  const dispatch = useDispatch();
 
-
-  
-
-  const handleNameChange = (event) => {
-    setName(event.target.value);
+  const initialValues = {
+    name: "",
+    designation: "",
   };
-  const handleDesignationChange = (event) => {
-    setDesignation(event.target.value);
-  };
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("Name is required"),
+    designation: Yup.string().required("Designation is required"),
+  });
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData();
-    
-    formData.append('name', name);
-    formData.append('designation', designation);
+  const formik = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit: async (values) => {
+      dispatch(createEntryPTA({ values, token }));
+    },
+  });
+  useEffect(() => {
+    if (message) {
+      const timeout = setTimeout(() => {
+        formik.resetForm();
+        dispatch(clearMessage());
+      }, 2000);
 
-
-    try {
-      const response = await axios.post(`${baseUrl}/api/addpta`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      console.log("ok");
-    } catch (error) {
-      console.error(error);
+      return () => clearTimeout(timeout);
     }
-  };
-    return (
-        <div className='flex items-center'>
-            <AdminPageLayout />
-            <div className="App w-full flex justify-center items-center h-[500px]">
-                <div className='shadow-lg   sm:w-4/6	 md:w-1/2 lg:w-1/2 shadow-md rounded px-8 pt-6  pb-8'>
-                    <h1 className='text-center m-5 text-xl text-orange font-bold'>Add PTA (2023-2024) </h1>
-                    <form onSubmit={handleSubmit}>
-                        
-                        <div>
-                            <label className="block text-gray-700 text-sm font-bold  " htmlFor="nameInput">Name</label><br></br>
-                            <input
-                                className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+    if (error) {
+      const timeout = setTimeout(() => {
+        dispatch(clearErrors());
+      }, 2000);
 
-                                type="text" id="nameInput" value={name} onChange={handleNameChange} />
-                        </div>
-                        <div>
-                            <label className="block text-gray-700 text-sm font-bold  " htmlFor="designationInput">Designation</label><br></br>
-                            <input
-                                className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+      return () => clearTimeout(timeout);
+    }
+  }, [message, dispatch, error, formik]);
 
-                                type="text" id="designationInput" value={designation} onChange={handleDesignationChange} />
-                        </div>
-                        <button className="bg-orange w-full hover:bg-white hover:text-orange border border-orange   text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Upload</button>
-                    </form>
-                </div>
+  return (
+    <div className="flex items-center">
+      <AdminPageLayout />
+      <div className="App w-full flex justify-center items-center h-[500px]">
+        <div className="   sm:w-4/6	 md:w-1/2 lg:w-1/2 shadow-md rounded px-8 pt-6  pb-8">
+          <h1 className="text-center m-5 text-xl text-orange font-bold">
+            Add PTA (2023-2024){" "}
+          </h1>
+
+          {error && <ErrorAlert error={error} />}
+          {message && <SuccessAlert message={message} />}
+          <form onSubmit={formik.handleSubmit}>
+            <div>
+              <label
+                className="block text-gray-700 text-sm font-bold  "
+                htmlFor="name"
+              >
+                Name
+              </label>
+              <br></br>
+              <input
+                className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                type="text"
+                id="name"
+                name="name"
+                value={formik.values.name}
+                onChange={formik.handleChange}
+              />
             </div>
+            <div>
+              <label
+                className="block text-gray-700 text-sm font-bold  "
+                htmlFor="designation"
+              >
+                Designation
+              </label>
+              <br></br>
+              <input
+                className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                type="text"
+                id="designation"
+                name="designation"
+                value={formik.values.designation}
+                onChange={formik.handleChange}
+              />
+            </div>
+            <button
+              type="submit"
+              className={`flex w-full uppercase tracking-widest justify-center rounded ${
+                loading ? "bg-[#fdba74]" : "bg-orange"
+              } px-3 py-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#ea580c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ea580c]`}
+              disabled={loading}
+            >
+              {loading ? <Spinner /> : "Submit"}
+            </button>
+          </form>
         </div>
-    )
+      </div>
+    </div>
+  );
 }

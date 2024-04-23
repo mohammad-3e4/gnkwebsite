@@ -9,12 +9,14 @@ import documentReducer from "./documentsSlice";
 import carouselReducer from "./carouselSlice";
 import facultiesReducer from "./facultiesSlice";
 import salariesReducer from "./salariesSlice";
+import managementReducer from "./managementSlice";
 
 const rootReducer = combineReducers({
   user: userReducer,
   documents: documentReducer,
   carousels: carouselReducer,
   faculties:facultiesReducer,
+  management:managementReducer,
   salaries:salariesReducer
 });
 

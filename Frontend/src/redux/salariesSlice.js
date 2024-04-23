@@ -1,6 +1,6 @@
 // salariesSlice.js
 import { createSlice } from "@reduxjs/toolkit";
-import { salareisOfFaculties} from '../Actions/panel'
+import { setSalareisOfFaculties, deleteFacultySalary} from '../Actions/panel'
 
 const initialState = {
   salaries: null,
@@ -22,16 +22,29 @@ const salariesSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(salareisOfFaculties.pending, (state) => {
+      .addCase(setSalareisOfFaculties.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(salareisOfFaculties.fulfilled, (state, action) => {
+      .addCase(setSalareisOfFaculties.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.salaries = action.payload.salaries;
+        state.message = action.payload.message;
       })
-      .addCase(salareisOfFaculties.rejected, (state, action) => {
+      .addCase(setSalareisOfFaculties.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload.error;
+      })
+      .addCase(deleteFacultySalary.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(deleteFacultySalary.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        state.message = action.payload.message;
+      })
+      .addCase(deleteFacultySalary.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload.error;
       })

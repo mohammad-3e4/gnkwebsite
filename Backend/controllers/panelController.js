@@ -59,34 +59,192 @@ function updateDocumentName(fileName, description, docType, date) {
 
 exports.getListOfFaculties = catchAsyncErrors(async (req, res, next) => {
   try {
-    const [rows, fields] = await db.promise().query(
-      "SELECT *, DATE_FORMAT(date_of_birth, '%m/%d/%Y') AS date_of_birth, DATE_FORMAT(date_of_appointment, '%m/%d/%Y') AS date_of_appointment,DATE_FORMAT(date_of_retirement, '%m/%d/%Y') AS date_of_retirement FROM faculty_joining"
-    );
-    res.json({ faculties:rows});
-    
+    const [rows, fields] = await db
+      .promise()
+      .query(
+        "SELECT *, DATE_FORMAT(date_of_birth, '%m/%d/%Y') AS date_of_birth, DATE_FORMAT(date_of_appointment, '%m/%d/%Y') AS date_of_appointment,DATE_FORMAT(date_of_retirement, '%m/%d/%Y') AS date_of_retirement FROM faculty_joining"
+      );
+    res.json({ faculties: rows });
   } catch (error) {
     console.error(error);
     res.status(500).send("Error fetching files from database.");
   }
 });
-exports.salariesOfFaculties = catchAsyncErrors (async (req, res) => {
+exports.salariesOfFaculties = catchAsyncErrors(async (req, res) => {
   try {
-    const [rows, fields] = await db.promise().query("SELECT *  FROM faculty_salary");
-    res.json({salaries:rows});
+    const [rows, fields] = await db
+      .promise()
+      .query("SELECT *  FROM faculty_salary");
+    res.json({ salaries: rows });
   } catch (error) {
     console.error(error);
     res.status(500).send("Error fetching files from database.");
   }
-})
+});
+
+exports.setSalariesOfFaculties = catchAsyncErrors(async (req, res) => {
+  const { name, designation, qualification, experience, pay_scale, category } =
+    req.body;
+
+  try {
+    const result = await db
+      .promise()
+      .query(
+        "INSERT INTO faculty_salary (name,designation,qualification,experience,pay_scale,category) VALUES (?, ?,?,?,?,?)",
+        [name, designation, qualification, experience, pay_scale, category]
+      );
+    console.log("Data inserted successfully");
+    res.json({ message: "Salary added successfully" });
+  } catch (error) {
+    console.error("Error inserting data:", error);
+    res.status(500).json({ error: error.message });
+  }
+});
 
 exports.deleteFacultyByID = catchAsyncErrors(async (req, res, next) => {
   const { id } = req.params;
   try {
-    const result = await db.promise().query(`DELETE FROM faculty_joining WHERE id=${id}`);
+    const result = await db
+      .promise()
+      .query(`DELETE FROM faculty_joining WHERE id=${id}`);
     console.log(`Deleted record with ID ${id}`);
-    res.status(200).send(`Record with ID ${id} deleted successfully.`);
+    res
+      .status(200)
+      .json({ message: `Record with ID ${id} deleted successfully.` });
   } catch (err) {
     console.error(err);
-    res.status(500).send("An error occurred while deleting the record.");
+    res
+      .status(500)
+      .json({ message: "An error occurred while deleting the record." });
   }
+});
+
+exports.facultiesJoining = catchAsyncErrors(async (req, res) => {
+  const {
+    name,
+    designation,
+    qualification,
+    date_of_birth,
+    date_of_appointment,
+    date_of_retirement,
+    category,
+  } = req.body;
+
+  try {
+    const result = await db
+      .promise()
+      .query(
+        "INSERT INTO faculty_joining (name,designation,qualification,date_of_birth,date_of_appointment,date_of_retirement,category) VALUES (?, ?,?,?,?,?,?)",
+        [
+          name,
+          designation,
+          qualification,
+          date_of_birth,
+          date_of_appointment,
+          date_of_retirement,
+          category,
+        ]
+      );
+    console.log("Data inserted successfully");
+    res.status(200).json({ message: "Data inserted successfully" });
+  } catch (error) {
+    console.error("Error inserting data:", error);
+    res.status(500).json({ error: "Error inserting data" });
+  }
+});
+
+exports.deleteFacultySalaryByID = catchAsyncErrors(async (req, res, next) => {
+  console.log("HI");
+  const { id } = req.params;
+  try {
+    const result = await db
+      .promise()
+      .query(`DELETE FROM faculty_salary  WHERE id=${id}`);
+    console.log(`Deleted record with ID ${id}`);
+    res
+      .status(200)
+      .json({ message: `Record with ID ${id} deleted successfully.` });
+  } catch (err) {
+    console.error(err);
+    res
+      .status(500)
+      .json({ message: "An error occurred while deleting the record." });
+  }
+});
+
+exports.addEntryOfPTA = catchAsyncErrors(async (req, res, next) => {
+  const name = req.body.name;
+  const designation = req.body.designation;
+
+  try {
+    const result = await db
+      .promise()
+      .query("INSERT INTO pta (name,designation) VALUES (?, ?)", [
+        name,
+        designation,
+      ]);
+    console.log("Data inserted successfully");
+    res.status(200).json({ message: "Data inserted successfully" });
+  } catch (error) {
+    console.error("Error inserting data:", error);
+    res.status(500).json({ error: error.message });
+  }
+});
+exports.getEntriesOfPTA = catchAsyncErrors(async (req, res) => {
+  try {
+    const [rows, fields] = await db.promise().query("SELECT * FROM pta");
+    res.status(200).json({ entries: rows });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+exports.deleteEntriesOfPTA = catchAsyncErrors(async (req, res) => {
+  const { id } = req.params;
+  const sql = "DELETE FROM pta WHERE id = ?";
+  db.query(sql, id, (err, result) => {
+    if (err) {
+      return res.status(500).json({ error: "Error deleting data" });
+    }
+    res.json({ message: "Data deleted successfully" });
+  });
+});
+exports.addEntryOfSMC = catchAsyncErrors(async(req, res) => {
+  const name = req.body.name;
+  const address = req.body.address;
+  const designation = req.body.designation;
+
+  try {
+    const result = await db.promise().query(
+      "INSERT INTO managing_commitee (name, address,designation) VALUES (?, ?, ?)",
+      [name, address, designation]
+    );
+    console.log("Data inserted successfully");
+    res.status(200).json({message:"Data inserted successfully"});
+  } catch (error) {
+    console.error("Error inserting data:", error);
+    res.status(500).json({error:error.message});
+  }
+});
+
+exports.getEntriesOfSMC = catchAsyncErrors(async(req, res) => {
+  try {
+    const [rows, fields] = await db.promise().query("SELECT * FROM managing_commitee");
+    res.status(200).json({members:rows});
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({error:error.message});
+  }
+});
+exports.deleteEntriesOfSMC = catchAsyncErrors(async (req, res) => {
+  const { id } = req.params;
+  const sql = "DELETE FROM managing_commitee WHERE id = ?";
+  db.query(sql, id, (err, result) => {
+    if (err) {
+      return res.status(500).json({ error: "Error deleting data" });
+    }
+    res.json({ message: "Data deleted successfully" });
+  });
 });

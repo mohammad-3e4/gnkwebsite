@@ -1,6 +1,6 @@
 // facultiesSlice.js
 import { createSlice } from "@reduxjs/toolkit";
-import { listOffaculties, salareisOfFaculties} from '../Actions/panel'
+import { listOffaculties, facultiesJoining,deleteFacultyEntry} from '../Actions/panel'
 
 const initialState = {
   faculties: null,
@@ -35,16 +35,29 @@ const facultiesSlice = createSlice({
         state.loading = false;
         state.error = action.payload.error;
       })
-      .addCase(salareisOfFaculties.pending, (state) => {
+      .addCase(facultiesJoining.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(salareisOfFaculties.fulfilled, (state, action) => {
+      .addCase(facultiesJoining.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.faculties = action.payload.faculties;
+        state.message = action.payload.message;
       })
-      .addCase(salareisOfFaculties.rejected, (state, action) => {
+      .addCase(facultiesJoining.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload.error;
+      })
+      .addCase(deleteFacultyEntry.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(deleteFacultyEntry.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        state.message = action.payload.message;
+      })
+      .addCase(deleteFacultyEntry.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload.error;
       })

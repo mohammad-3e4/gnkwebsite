@@ -2,11 +2,18 @@ import React, { useState } from 'react';
 import AdminPageLayout from './AdminPageLayout';
 import { Link } from 'react-router-dom';
 import { baseUrl } from '../../baseUrl';
+import { SuccessCard } from '../SuccessCard';
+import { ErrorCard } from '../Errorcard';
 export default function UploadVideo() {
   const [formData, setFormData] = useState({
+    
     videolink: '',
     videotitle: ''
   });
+  const [message, setMessage] = useState()
+  const [error, setError] = useState()
+
+
 
   const handleChange = (e) => {
     setFormData({
@@ -19,7 +26,7 @@ export default function UploadVideo() {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${baseUrl}/Video`, {
+      const response = await fetch(`${baseUrl}/api/v2/media/uploadvideo`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -28,9 +35,13 @@ export default function UploadVideo() {
       });
 
       if (response.ok) {
-        console.log('Form data sent successfully!');
+        console.log(response)
+        setMessage('Video insert successfully!');
+        formData.videolink=""
+        formData.videotitle=""
+
       } else {
-        console.error('Failed to send form data.');
+        setError('Failed to insert video.');
       }
     } catch (error) {
       console.error('Error sending form data:', error);
@@ -82,15 +93,23 @@ export default function UploadVideo() {
 
           </div>
           <div className="flex items-center justify-between">
-            <button className="bg-orange hover:bg-white hover:text-orange border border-orange   text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+            <button oncClick={()=>{handleSubmit()}} className="bg-orange hover:bg-white hover:text-orange border border-orange   text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
               Upload
             </button>
+            <Link to="/adminvideo">
+                    <div className="inline-block align-baseline border border-orange py-2 px-8 rounded font-bold text-sm text-white bg-orange "a>
+                    All Videos
+                </div>
+              </Link>
             <Link className="inline-block align-baseline border  border-orange py-2 px-8 rounded font-bold text-sm text-orange hover:bg-orange hover:text-white" id="link" to="#" onClick={handleGetLink}>
               Play
             </Link>
           </div>
         </form>
       </div>
+      {message && <SuccessCard message={message} isClose={()=>setMessage(null)}/>}
+      {error && <ErrorCard message={error} isClose={()=>setError(null)}/>}
+
     </div>
   );
 }

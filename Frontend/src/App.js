@@ -58,7 +58,7 @@ import AdminActivity from "./Components/Admin/AdminActivity";
 import DeleteManagement from "./Components/Admin/DeleteManagement";
 import FacultySalary from "./Components/Admin/FacultySalary";
 import FacultyJoining from "./Components/Admin/FacultyJoining";
-import DeleteStaff from "./Components/Admin/DeleteStaff";
+import Faculties from "./Components/Admin/Faculties";
 import Payment from "./Payment";
 import PrivateRoute from "./PrivateRoutes";
 function App() {
@@ -126,7 +126,7 @@ function App() {
           <Route path="/delete_mangement" element={<DeleteManagement />} />
           <Route path="/facultysalary" element={<FacultySalary />} />
           <Route path="/facultyjoining" element={<FacultyJoining />} />
-          <Route path="/deletestaff" element={<DeleteStaff />} />
+          <Route path="/faculties-info" element={<Faculties />} />
           <Route path="/payment" element={<Payment />} />
         </Route>
       </Routes>
