@@ -9,7 +9,7 @@ import Spinner from "../Spinner";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 
-export default function UploadResult() {
+export default function UploadRecuitment() {
   const { loading, error, message } = useSelector((state) => state.documents);
   const token = localStorage.getItem("token");
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ export default function UploadResult() {
       
       const formData = new FormData();
       formData.append("file", values.file);
-      formData.append("docType", "result");
+      formData.append("docType", "recuitment");
       formData.append("date", values.date);
       formData.append("description", values.description);
 
@@ -48,11 +48,11 @@ export default function UploadResult() {
         <div className="sm:w-4/6 md:w-1/2 lg:w-1/2 rounded">
         <div className='lg:flex justify-around'>
                 <h2 className="text-3xl my-5 text-center text-blue font-bold tracking-tight sm:text-4xl">
-                    <span className='text-orange'>Upload </span>Result 
+                    <span className='text-orange'>Upload </span>Requitment 
                 </h2>
-                <Link to="/adminresults">
+                <Link to="/adminrequitment">
                     <div className="inline-block mt-7 align-baseline border border-orange py-2 px-8 rounded font-bold text-sm text-white bg-orange "a>
-                    All result
+                    All Requitment
                 </div>
                 </Link>
                 </div>

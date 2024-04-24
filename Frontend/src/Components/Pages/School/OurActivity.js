@@ -77,7 +77,7 @@ function OurActivity() {
                     {activity.map((act, index) => (
                         <div className='relative h-full w-full flex justify-center items-center' key={index} style={{ display: buttonsVisible ? 'block' : 'none' }}>
                             <button onClick={() => fetchData(act.activity)} className='w-full h-full'>
-                                <img className="block max-w-full h-full rounded-lg" src={`/uploads/activity/${act.file_name}`} alt="" />
+                                <img className="block max-w-full h-full aspect-square rounded-lg" src={`/uploads/activity/${act.file_name}`} alt="" />
                                 <div style={{ background: "rgba(255,255,255,0.8)" }} className="absolute duration-500 h-full w-full opacity-0 flex justify-center items-center left-0 top-0 rounded-lg hover:opacity-100 " >
                                     <h2 className="font-bold text-center text-xs lg:text-2xl sm:text-lg drop-shadow-md" style={{ color: "var(--orange)" }}>{act.activity}</h2>
                                 </div>
@@ -87,7 +87,6 @@ function OurActivity() {
                 </div>
             </div>
 
-            {loading && <p>Loading...</p>}
             {error && <p className="text-red-500">{error}</p>}
 
             {files?.length > 0 && (

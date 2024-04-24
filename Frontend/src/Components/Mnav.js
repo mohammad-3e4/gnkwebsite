@@ -41,7 +41,7 @@ const admin = [
 const recruitment = [
   { name: "Advertisement / Notice", href: "/notice" },
   { name: "Form", href: "/form" },
-  { name: "Result", href: "/result" },
+  { name: "Recruitment", href: "/recruitmentResult" },
 ];
 
 function classNames(...classes) {

@@ -137,7 +137,7 @@ function HomeActivity() {
                 className="w-full h-full"
               >
                 <img
-                  className="block max-w-full h-full rounded-lg"
+                  className="block max-w-full h-full aspect-square rounded-lg"
                   src={button.imageSrc}
                   alt=""
                 />
@@ -155,7 +155,6 @@ function HomeActivity() {
         </div>
       </div>
 
-      {loading && <p>Loading...</p>}
       {error && <p className="text-red-500">{error}</p>}
 
       {files.length > 0 && (
@@ -181,8 +180,8 @@ function HomeActivity() {
                       setSelectedImage(file.Name);
                     }}
                     className="object-cover w-full h-full duration-200 rounded-lg hover:skew-y-3"
-                    src={`${baseUrl}/uploads/activity/${file.Name}`}
-                    alt={`${file.Name} is not available`}
+                    src={`${baseUrl}/uploads/activity/${file.file_name}`}
+                    alt={`${file.file_name} is not available`}
                   />
                 </div>
               ))}

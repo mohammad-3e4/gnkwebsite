@@ -62,8 +62,8 @@ function Gallery() {
                                     setSelectedImage(file.Name);
                                     setCurrentIndex(index);
                                 }}
-                                className="h-full w-full duration-200 rounded-lg hover:skew-y-3"
-                                src={`/uploads/images/${file.Name}`}
+                                className="h-full aspect-square w-full duration-200 rounded-lg hover:skew-y-3"
+                                src={`/uploads/images/${file.file_name}`}
                                 alt={`${file.Name} is not available`}
                             />
                         </div>

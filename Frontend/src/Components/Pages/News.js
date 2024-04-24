@@ -12,8 +12,8 @@ function News() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${baseUrl}/files`);
-      setFiles(response.data.reverse());
+      const response = await axios.get(`${baseUrl}/api/v2/media/news`);
+      setFiles(response.data.news.reverse());
       setLoading(false);
     } catch (error) {
       console.error(error);
@@ -48,7 +48,7 @@ function News() {
 
         <a
           className=" bg-orange flex-none  rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
-          href={`/uploads/${file.name}`} target="_blank" rel="noopener noreferrer">
+          href={`/uploads/news/${file.file_name}`} target="_blank" rel="noopener noreferrer">
           Download Now<span aria-hidden="true">&rarr;</span>
         </a>
       </li>

@@ -3,7 +3,7 @@ import { deleteByIdDocuments } from "../Actions/documents";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, clearMessage } from "../redux/documentsSlice";
 import Spinner from "../Components/Spinner";
-export const Confirmation = ({ isClose, id }) => {
+export const Confirmation = ({ isClose, id ,docType }) => {
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
   const { loading, error, message, documents } = useSelector(
@@ -12,7 +12,7 @@ export const Confirmation = ({ isClose, id }) => {
 
   const handleDelete = () => {
     dispatch(
-      deleteByIdDocuments({ docID: id, docType: "admissionform", token })
+      deleteByIdDocuments({ docID: id, docType, token })
     );
   };
   React.useEffect(() => {

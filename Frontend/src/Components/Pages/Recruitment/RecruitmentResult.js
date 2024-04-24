@@ -2,15 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { baseUrl } from "../../../baseUrl";
 
-export default function Result() {
+export default function RecruitmentResult() {
     const [data, setData] = useState([]);
     useEffect(() => {
         fetchdata();
     }, []);
     const fetchdata = async () => {
         try {
-            const response = await axios.get(`${baseUrl}/api/v2/documents/result`);
-            console.log('Response from backend:', response.data.documents);
+            const response = await axios.get(`${baseUrl}/api/v2/documents/recuitment`);
             setData(response.data.documents.reverse());
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -22,7 +21,7 @@ export default function Result() {
     return (
         <div  className='overflow-scroll w-full h-[500px]'>
             <div className="w-full ">
-                <h2 style={{ marginBottom: "40px" }} className="text-3xl  my-4 text-center font-bold tracking-tight text-orange sm:text-4xl">Result</h2>
+                <h2 style={{ marginBottom: "40px" }} className="text-3xl  my-4 text-center font-bold tracking-tight text-orange sm:text-4xl">Requitement Result</h2>
 
                 <div className='w-full  flex justify-center items-center h-full '>
 

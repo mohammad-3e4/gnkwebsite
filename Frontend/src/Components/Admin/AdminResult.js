@@ -5,7 +5,8 @@ import { getDocuments, deleteByIdDocuments } from "../../Actions/documents";
 import { useDispatch, useSelector } from "react-redux";
 import { Confirmation } from "../Confirmation";
 import { clearErrors, clearMessage } from "../../redux/documentsSlice";
-export default function AdminAdmission() {
+import { Link } from "react-router-dom";
+export default function AdminResult() {
   const dispatch = useDispatch();
   const { loading, error, message, documents } = useSelector(
     (state) => state.documents
@@ -14,7 +15,7 @@ export default function AdminAdmission() {
   const [id, setId] = useState();
 
   useEffect(() => {
-    dispatch(getDocuments({ docType: "admissionform", token }));
+    dispatch(getDocuments({ docType: "result", token }));
     if (error) {
         const errorInterval = setInterval(() => {
           dispatch(clearErrors());
@@ -39,12 +40,16 @@ export default function AdminAdmission() {
 
       <div className="overflow-scroll w-full h-[80vh]">
         <div className="w-full ">
-          <h2
-            style={{ marginBottom: "40px" }}
-            className="text-3xl text-orange mt-5 text-center font-bold tracking-tight  sm:text-4xl"
-          >
-            Admission <span style={{ color: "var(--blue" }}>Form</span>{" "}
-          </h2>
+        <div className='lg:flex justify-around'>
+                <h2 className="text-3xl my-5 text-center text-blue font-bold tracking-tight sm:text-4xl">
+                    <span className='text-orange'> Results</span> 
+                </h2>
+                <Link to="/uploadresult">
+                    <div className="inline-block mt-7 align-baseline border border-orange py-2 px-8 rounded font-bold text-sm text-white bg-orange "a>
+                    Uplaod Result
+                </div>
+                </Link>
+                </div>
 
           <div className="w-full  flex justify-center items-center h-full ">
             {/* <ul className=' border max-w-full sm:max-w-full	 md:max-w-full lg:max-w-7xl '> */}
@@ -79,7 +84,7 @@ export default function AdminAdmission() {
           </div>
         </div>
       </div>
-      {id && <Confirmation id={id} docType='admissionform' isClose={()=>setId(null)}/>}
+      {id && <Confirmation id={id} docType="result" isClose={()=>setId(null)}/>}
     </div>
   );
 }

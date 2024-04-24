@@ -81,10 +81,10 @@ exports.getDocumentsByType = catchAsyncErrors(async (req, res, next) => {
 exports.deleteDocumentByTypeAndId = catchAsyncErrors(async (req, res, next) => {
   const docType = req.params.docType;
   const docID = req.params.docID;
-  console.log("JIiii");
+ console.log("from",docType);
   try {
     const query = `DELETE FROM ${docType} WHERE id = ?`;
-
+  console.log(query);
     db.query(query, [docID], (err, result) => {
       if (err) {
         console.log(err);
@@ -98,6 +98,49 @@ exports.deleteDocumentByTypeAndId = catchAsyncErrors(async (req, res, next) => {
 
       // Document deleted successfully
       res.status(200).json({ message: "Document deleted successfully" });
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+exports.getResult = catchAsyncErrors(async (req, res, next) => {
+  // const docType = req.params.docType;
+  // console.log(docType);
+  try {
+    const query = `SELECT * FROM result`;
+
+    db.query(query, (err, results) => {
+      if (err) {
+        return res.status(500).json({ error: "Error fetching result" });
+      }
+
+      if (!results || results.length === 0) {
+        return res.status(404).json({ message: "No result found" });
+      }
+      res.status(200).json({ result: results });
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+exports.getRecruitmentResult = catchAsyncErrors(async (req, res, next) => {
+
+  try {
+    const query = `SELECT * FROM recuitment`;
+
+    db.query(query, (err, results) => {
+      if (err) {
+        return res.status(500).json({ error: "Error fetching result" });
+      }
+
+      if (!results || results.length === 0) {
+        return res.status(404).json({ message: "No result found" });
+      }
+      res.status(200).json({ result: results });
     });
   } catch (error) {
     console.log(error);

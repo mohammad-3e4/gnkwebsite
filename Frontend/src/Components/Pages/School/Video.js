@@ -10,9 +10,9 @@ export default function Video() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${baseUrl}/api/showvideo`);
-            console.log('Response from backend:', response.data[0]);
-            setData(response.data[0]);
+            const response = await axios.get(`${baseUrl}/api/v2/media/videos`);
+            console.log('Response from backend:', response.data.videos);
+            setData(response.data.videos);
         } catch (error) {
             console.error('Error fetching data:', error);
 
