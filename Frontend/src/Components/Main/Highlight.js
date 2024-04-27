@@ -35,21 +35,21 @@ export default function Highlight() {
       const firstFile = highlight[0];
     
     return (
-        <div class="relative mt-10 flex overflow-x-hidden">
-            <div class="  animate-marquee whitespace-nowrap text-orange font-medium">
-                <span class="text-xl mx-4">{firstFile.content}</span>
-                <span class="text-xl mx-4">{firstFile.content}</span>
-                <span class="text-xl mx-4">{firstFile.content}</span>
-                <span class="text-xl mx-4">{firstFile.content}</span>
-                <span class="text-xl mx-4">{firstFile.content}</span>               
+        <div className="relative mt-10 flex overflow-x-hidden">
+            <div className="  animate-marquee whitespace-nowrap text-orange font-medium">
+                <span className="text-xl mx-4">{firstFile.content}</span>
+                <span className="text-xl mx-4">{firstFile.content}</span>
+                <span className="text-xl mx-4">{firstFile.content}</span>
+                <span className="text-xl mx-4">{firstFile.content}</span>
+                <span className="text-xl mx-4">{firstFile.content}</span>               
             </div>
 
-            <div class="absolute top-0  animate-marquee2 whitespace-nowrap text-orange font-medium">              
-                <span class="text-xl mx-4">{firstFile.content}</span>
-                <span class="text-xl mx-4">{firstFile.content}</span>
-                <span class="text-xl mx-4">{firstFile.content}</span>
-                <span class="text-xl mx-4">{firstFile.content}</span>
-                <span class="text-xl mx-4">{firstFile.content}</span>
+            <div className="absolute top-0  animate-marquee2 whitespace-nowrap text-orange font-medium">              
+                <span className="text-xl mx-4">{firstFile.content}</span>
+                <span className="text-xl mx-4">{firstFile.content}</span>
+                <span className="text-xl mx-4">{firstFile.content}</span>
+                <span className="text-xl mx-4">{firstFile.content}</span>
+                <span className="text-xl mx-4">{firstFile.content}</span>
             </div>
         </div>
 

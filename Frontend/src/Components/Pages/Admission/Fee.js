@@ -16,7 +16,7 @@ export default function Fee() {
             <thead>
               <tr className="bg-blue text-white">
                 <th scope="col" className="border border-slate-400 px-4 py-2 w-1/4" >S.No.</th>
-                <th scope="col" className="border border-slate-400 px-4 py-2 w-1/4" >CLASS</th>
+                <th scope="col" className="border border-slate-400 px-4 py-2 w-1/4" >className</th>
                 <th scope="col" className="border border-slate-400 px-4 py-2 w-1/4">ADMISSION TIME</th>
                 <th scope="col" className="border border-slate-400 px-4 py-2 w-1/4">FEES</th>
               </tr>

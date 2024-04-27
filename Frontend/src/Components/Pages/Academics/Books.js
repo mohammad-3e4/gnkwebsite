@@ -9,7 +9,7 @@ export default function Books() {
                     <div className="w-full text-center">
                         <h2 style={{ color: "var(--blue)", marginBottom: "40px" }} className="text-3xl mt-5  font-bold tracking-tight  sm:text-4xl">LIST OF <span style={{ color: 'var(--orange)' }}> BOOKS</span> </h2>
 
-                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >Class - Pre_Nursary</h2>
+                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >className - Pre_Nursary</h2>
                         <div className="overflow-x-auto relative mb-5 ">
                             <table className="table   w-full  text-left ">
                                 <thead className="mb-5">
@@ -50,7 +50,7 @@ export default function Books() {
                             </table>
                         </div>
                         {/* Table 2************************************************************************************************* */}
-                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >Class -Nursary</h2>
+                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >className -Nursary</h2>
                         <div className="overflow-x-auto mb-5 ">
                             <table className="table min-w-full bg-white w-full text-left ">
                                 <thead className="mb-5">
@@ -95,7 +95,7 @@ export default function Books() {
                             </table></div>
 
                         {/* Table 3************************************************************************************************* */}
-                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >Class -k.G</h2>
+                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >className -k.G</h2>
                         <div className="overflow-x-auto mb-5">
                             <table className="table min-w-full bg-white w-full text-left ">
                                 <thead className="mb-5">
@@ -139,7 +139,7 @@ export default function Books() {
                             </table></div>
 
                         {/* Table 4************************************************************************************************* */}
-                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >Class -I</h2>
+                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >className -I</h2>
                         <div className="overflow-x-auto mb-5">
                             <table className="table min-w-full bg-white w-full text-left ">
                                 <thead className="mb-5">
@@ -171,7 +171,7 @@ export default function Books() {
                             </table></div>
 
                         {/* Table 5************************************************************************************************* */}
-                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >Class -II</h2>
+                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >className -II</h2>
                         <div className="overflow-x-auto mb-5">
                             <table className="table min-w-full bg-white w-full text-left ">
                                 <thead className="mb-5">
@@ -202,7 +202,7 @@ export default function Books() {
                             </table></div>
 
                         {/* Table 6************************************************************************************************* */}
-                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >Class -III</h2>
+                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >className -III</h2>
                         <div className="overflow-x-auto mb-5">
                             <table className="table min-w-full bg-white w-full text-left ">
                                 <thead className="mb-5">
@@ -238,7 +238,7 @@ export default function Books() {
                             </table></div>
 
                         {/* Table 7************************************************************************************************* */}
-                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >Class -IV</h2>
+                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >className -IV</h2>
                         <div className="overflow-x-auto mb-5">
                             <table className="table min-w-full bg-white w-full text-left ">
                                 <thead className="mb-5">
@@ -279,7 +279,7 @@ export default function Books() {
                             </table></div>
 
                         {/* Table 8************************************************************************************************* */}
-                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >Class - V</h2>
+                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >className - V</h2>
                         <div className="overflow-x-auto mb-5">
                             <table className="table min-w-full bg-white w-full text-left ">
                                 <thead className="mb-5">
@@ -320,7 +320,7 @@ export default function Books() {
                             </table></div>
 
                         {/* Table 9************************************************************************************************* */}
-                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >Class - VI</h2>
+                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >className - VI</h2>
                         <div className="overflow-x-auto mb-5">
                             <table className="table min-w-full bg-white w-full text-left ">
                                 <thead className="mb-5">
@@ -345,7 +345,7 @@ export default function Books() {
                                     <tr className=" transition duration-400 hover:bg-gray-100">
                                         <th scope="row" className="px-4 py-2 border border-slate-400">3</th>
                                         <td className="px-4 py-2 border border-slate-400">Science</td>
-                                        <td className="px-4 py-2 border border-slate-400">Science Text Book for Class-VI (NCERT) </td>
+                                        <td className="px-4 py-2 border border-slate-400">Science Text Book for className-VI (NCERT) </td>
                                     </tr>
                                     <tr className=" transition duration-400 hover:bg-gray-100">
                                         <th scope="row" className="px-4 py-2 border border-slate-400">4</th>
@@ -367,7 +367,7 @@ export default function Books() {
                                     <tr className=" transition duration-400 hover:bg-gray-100">
                                         <th scope="row" className="px-4 py-2 border border-slate-400">7</th>
                                         <td className="px-4 py-2 border border-slate-400">Optional (Any Other)</td>
-                                        <td className="px-4 py-2 border border-slate-400">Drawing: l.Chitrakalafor Class-VI (PSEB)<br></br>
+                                        <td className="px-4 py-2 border border-slate-400">Drawing: l.Chitrakalafor className-VI (PSEB)<br></br>
                                             Home Science: 1. Greh Vigyan 6-8 (PSEB)</td>
                                     </tr>
                                     <tr className=" transition duration-400 hover:bg-gray-100">
@@ -379,7 +379,7 @@ export default function Books() {
                             </table></div>
 
                         {/* Table 10************************************************************************************************* */}
-                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >Class - VII</h2>
+                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >className - VII</h2>
                         <div className="overflow-x-auto mb-5">
                             <table className="table min-w-full bg-white w-full text-left ">
                                 <thead className="mb-5">
@@ -404,7 +404,7 @@ export default function Books() {
                                     <tr className=" transition duration-400 hover:bg-gray-100">
                                         <th scope="row" className="px-4 py-2 border border-slate-400">3</th>
                                         <td className="px-4 py-2 border border-slate-400">Science</td>
-                                        <td className="px-4 py-2 border border-slate-400">Science Text Book for Class-VII (NCERT) </td>
+                                        <td className="px-4 py-2 border border-slate-400">Science Text Book for className-VII (NCERT) </td>
                                     </tr>
                                     <tr className=" transition duration-400 hover:bg-gray-100">
                                         <th scope="row" className="px-4 py-2 border border-slate-400">4</th>
@@ -426,7 +426,7 @@ export default function Books() {
                                     <tr className=" transition duration-400 hover:bg-gray-100">
                                         <th scope="row" className="px-4 py-2 border border-slate-400">7</th>
                                         <td className="px-4 py-2 border border-slate-400">Optional (Any Other)</td>
-                                        <td className="px-4 py-2 border border-slate-400">Drawing: l.Chitrakalafor Class-VII (PSEB)<br></br>
+                                        <td className="px-4 py-2 border border-slate-400">Drawing: l.Chitrakalafor className-VII (PSEB)<br></br>
                                             Home Science: 1. Greh Vigyan 6-8 (PSEB)</td>
                                     </tr>
                                     <tr className=" transition duration-400 hover:bg-gray-100">
@@ -438,7 +438,7 @@ export default function Books() {
                             </table></div>
 
                         {/* Table 11************************************************************************************************* */}
-                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >Class - VIII</h2>
+                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >className - VIII</h2>
                         <div className="overflow-x-auto mb-5">
                             <table className="table min-w-full bg-white w-full text-left ">
                                 <thead className="mb-5">
@@ -463,7 +463,7 @@ export default function Books() {
                                     <tr className=" transition duration-400 hover:bg-gray-100">
                                         <th scope="row" className="px-4 py-2 border border-slate-400">3</th>
                                         <td className="px-4 py-2 border border-slate-400">Science</td>
-                                        <td className="px-4 py-2 border border-slate-400">Science Text Book for Class-VII (NCERT) </td>
+                                        <td className="px-4 py-2 border border-slate-400">Science Text Book for className-VII (NCERT) </td>
                                     </tr>
                                     <tr className=" transition duration-400 hover:bg-gray-100">
                                         <th scope="row" className="px-4 py-2 border border-slate-400">4</th>
@@ -487,7 +487,7 @@ export default function Books() {
                             </table></div>
 
                         {/* Table 12************************************************************************************************* */}
-                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >Class - IX</h2>
+                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >className - IX</h2>
                         <div className="overflow-x-auto mb-5">
                             <table className="table min-w-full bg-white w-full text-left ">
                                 <thead className="bg-blue text-white">
@@ -508,13 +508,13 @@ export default function Books() {
                                     <tr className=" transition duration-400 hover:bg-gray-100">
                                         <th scope="row" className="px-4 py-2 border border-slate-400">2</th>
                                         <td className="px-4 py-2 border border-slate-400">Mathematics</td>
-                                        <td className="px-4 py-2 border border-slate-400">Mathematics for class IX (NCERT)</td>
+                                        <td className="px-4 py-2 border border-slate-400">Mathematics for className IX (NCERT)</td>
                                     </tr>
 
                                     <tr className=" transition duration-400 hover:bg-gray-100">
                                         <th scope="row" className="px-4 py-2 border border-slate-400">3</th>
                                         <td className="px-4 py-2 border border-slate-400">Science</td>
-                                        <td className="px-4 py-2 border border-slate-400">Science Text Book for Class-IX (NCERT) </td>
+                                        <td className="px-4 py-2 border border-slate-400">Science Text Book for className-IX (NCERT) </td>
                                     </tr>
                                     <tr className=" transition duration-400 hover:bg-gray-100">
                                         <th scope="row" className="px-4 py-2 border border-slate-400">4</th>
@@ -542,7 +542,7 @@ export default function Books() {
                             </table></div>
 
                         {/* Table 13************************************************************************************************* */}
-                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >Class - X</h2>
+                        <h2 className="text-center font-bold my-5" colSpan={"4"} style={{ color: 'var(--orange)', fontSize: "20px" }} >className - X</h2>
                         <div className="overflow-x-auto  mb-5">
                             <table className="table border-collapse  min-w-full bg-white w-full text-left  ">
                                 <thead >
@@ -569,13 +569,13 @@ export default function Books() {
                                     <tr className=" transition duration-400 hover:bg-gray-100">
                                         <th scope="row" className="px-4 py-2 border border-slate-400">2</th>
                                         <td className="px-4 py-2 border border-slate-400">Mathematics</td>
-                                        <td className="px-4 py-2 border border-slate-400">Mathematics for class X (NCERT)</td>
+                                        <td className="px-4 py-2 border border-slate-400">Mathematics for className X (NCERT)</td>
                                     </tr>
 
                                     <tr className=" transition duration-400 hover:bg-gray-100">
                                         <th scope="row" className="px-4 py-2 border border-slate-400">3</th>
                                         <td className="px-4 py-2 border border-slate-400">Science</td>
-                                        <td className="px-4 py-2 border border-slate-400">Science Text Book for Class-X (NCERT)</td>
+                                        <td className="px-4 py-2 border border-slate-400">Science Text Book for className-X (NCERT)</td>
                                     </tr>
                                     <tr className=" transition duration-400 hover:bg-gray-100">
                                         <th scope="row" className="px-4 py-2 border border-slate-400">4</th>

@@ -17,11 +17,11 @@ const Signin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const initialValues = {
-    email: "",
+    username: "",
     password: "",
   };
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email("Incorrect email").required("Email is required"),
+    username: Yup.string().required("username is required"),
     password: Yup.string().required("Password is required"),
   });
 
@@ -67,28 +67,28 @@ const Signin = () => {
           <div>
             <div className="flex items-center justify-between ">
               <label
-                htmlFor="email"
+                htmlFor="username"
                 className="block text-sm font-sans tracking-widest font-medium leading-6 text-gray-900 "
               >
-                Email
+                Username
               </label>
               <div className="text-sm"></div>
             </div>
             <div className="mt-2">
               <input
-                id="email"
-                name="email"
-                value={formik.values.email}
+                id="username"
+                name="username"
+                value={formik.values.username}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                type="email"
+                type="username"
                 required
                 className="block w-full tracking-widest font-sans px-3 rounded border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
-            {formik.touched.email && formik.errors.email && (
+            {formik.touched.username && formik.errors.username && (
               <p className="text-red-500 tracking-widest text-xs mt-2 text-left">
-                {formik.errors.email}*
+                {formik.errors.username}*
               </p>
             )}
           </div>

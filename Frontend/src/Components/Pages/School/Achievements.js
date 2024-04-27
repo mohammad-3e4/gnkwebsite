@@ -50,7 +50,7 @@ export default function Achievements() {
                 <h4 style={{ fontSize: "20px" }} className="font-bold text-orange my-5">Other Achievements</h4>
                 <p style={{ fontSize: "18px" }}>
                     <ul className="list-none list-inside text-justify">
-                        <li className="mb-1"><CheckBadgeIcon className="h-6 w-6 inline text-blue" /> Language department of Chandigarh organized competition on Nibandh, Kahani & Kavita Lekhan in which 8th and 10th class students participated and got prizes</li>
+                        <li className="mb-1"><CheckBadgeIcon className="h-6 w-6 inline text-blue" /> Language department of Chandigarh organized competition on Nibandh, Kahani & Kavita Lekhan in which 8th and 10th className students participated and got prizes</li>
                         <li className="mb-1"><CheckBadgeIcon className="h-6 w-6 inline text-blue" /> Every year our students participate in countless region competitions and won many attractive shields, cash prizes and scholarships</li>
                         <li className="mb-1"><CheckBadgeIcon className="h-6 w-6 inline text-blue" /> Our Hindi Teacher participated on Hindi Seminar noneussion war on “Hindi Grammar Topics” and won 1st prize.</li>
                         <li className="mb-1"><CheckBadgeIcon className="h-6 w-6 inline text-blue" /> The Students collected sum of Rs.30,000/- from their relatives and neighbourers to help the cancer patients and got many attractive prizes from the cancer society.</li>

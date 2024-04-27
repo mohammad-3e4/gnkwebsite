@@ -28,8 +28,8 @@ export default function News2() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${baseUrl}/files`);
-      setFiles(response.data.reverse());
+      const response = await axios.get(`${baseUrl}/api/v2/media/news`);
+      setFiles(response.data.news.reverse());
       setLoading(false);
     } catch (error) {
       console.error(error);

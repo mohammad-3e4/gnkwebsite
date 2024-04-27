@@ -17,7 +17,7 @@ export default function Salient() {
                     <ul className="list-none list-inside">
                         <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> Discipline highest priority.</li>
                         <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> Priority given to studies.</li>
-                        <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> Computer education from class 1st onwards</li>
+                        <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> Computer education from className 1st onwards</li>
                         <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> Well stocked library, fully functional Science labs.</li>
                     </ul>
                     <p style={{color:"var(--orange)",fontWeight:"500"}} className="my-5">Arrangements for Basketball, Football, Hockey, Handball, Badminton, Kho-Kho, Netball etc.</p>
@@ -30,19 +30,19 @@ export default function Salient() {
                         <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> 15% reservation for economically weaker section.</li>
                         <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> Reasonable fee charges.</li>
                         <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> Pollution free environment having nature fresh club.</li>
-                        <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> NSS  for classes XI and XII</li>
-                        <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> NCC for Class IX and X</li>
+                        <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> NSS  for classNamees XI and XII</li>
+                        <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> NCC for className IX and X</li>
                     </ul>
                     <p style={{color:"var(--orange)",fontWeight:"500"}} className="my-5">Special Instructions for Parents / Guardians:</p>
 
                     <ul className="list-none list-inside">
                        
                         <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> School visiting hours: 9:30 a.m. to 10:30 a.m.</li>
-                        <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> Parents can meet class teacher and subject teachers on Parent Teacher Meeting Day.</li>
+                        <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> Parents can meet className teacher and subject teachers on Parent Teacher Meeting Day.</li>
                         <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> Parent must ensure that their wards are regular, punctual, correctly dressed and always carry school diary with them.</li>
                         <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> Attendance of students in all school activities / school functions, particular or celebrations of National Days is compulsory.</li>
                         <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> Trimming of beard and hair cut by Sikh students is strictly prohibited. Defaulters name will be struck off from the school without listening any excuse.</li>
-                        <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> Turban is compulsory from class 8th onwards for Sikh students.</li>
+                        <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> Turban is compulsory from className 8th onwards for Sikh students.</li>
                         <li  className="mb-1" ><CheckBadgeIcon className="h-6 w-6 inline text-blue"/> Non Sikh boys should get their hair trimmed at intervals.</li>
 
                     </ul>

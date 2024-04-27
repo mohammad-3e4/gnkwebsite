@@ -29,7 +29,7 @@ const Timetable = () => {
             <h2 style={{ color: "var(--blue)", marginBottom: "40px" }} className="text-3xl mt-5 text-center  font-bold tracking-tight  sm:text-4xl">School <span style={{ color: 'var(--orange)' }}> Time-table</span> </h2>
             <div div className=' flex justify-center'>
                 <div className="container mx-auto max-w-7xl px-4 py-8">
-                    <h1 className="text-xl text-orange font-bold mb-4">Class 10th Timetable</h1>
+                    <h1 className="text-xl text-orange font-bold mb-4">className 10th Timetable</h1>
                     <div className="overflow-x-auto">
                         <table className="table-auto w-full">
                             <thead>
@@ -58,7 +58,7 @@ const Timetable = () => {
             </div>
             <div div className=' flex justify-center'>
                 <div className="container mx-auto max-w-7xl px-4 py-8">
-                    <h1 className="text-xl text-orange font-bold mb-4">Class 11th Timetable</h1>
+                    <h1 className="text-xl text-orange font-bold mb-4">className 11th Timetable</h1>
                     <div className="overflow-x-auto">
                         <table className="table-auto w-full">
                             <thead>
@@ -87,7 +87,7 @@ const Timetable = () => {
             </div>
             <div div className=' flex justify-center'>
                 <div className="container mx-auto max-w-7xl px-4 py-8">
-                    <h1 className="text-xl text-orange font-bold mb-4">Class 12th Timetable</h1>
+                    <h1 className="text-xl text-orange font-bold mb-4">className 12th Timetable</h1>
                     <div className="overflow-x-auto">
                         <table className="table-auto w-full">
                             <thead>

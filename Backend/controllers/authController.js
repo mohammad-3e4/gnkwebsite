@@ -20,11 +20,11 @@ const transporter = nodemailer.createTransport({
 });
 
 exports.signin = catchAsyncErrors(async (request, response, next) => {
-  const { email, password } = request.body;
+  const { username, password } = request.body;
 
-  const sql = `SELECT * FROM admintable WHERE email=? AND password=?;`;
+  const sql = `SELECT * FROM admintable WHERE username=? AND password=?;`;
 
-  db.query(sql, [email, password], (err, result) => {
+  db.query(sql, [username, password], (err, result) => {
     if (err) {
       console.error("Error during login:", err);
       return next(new ErrorHandler("Error during login !", 500));

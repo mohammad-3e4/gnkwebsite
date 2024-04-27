@@ -37,18 +37,18 @@ export const Confirmation = ({ isClose, id ,docType }) => {
           id="deleteModal"
           tabindex="-1"
           aria-hidden="true"
-          class="overflow-y-auto overflow-x-hidden fixed flex items-center bg-[#00000094]  z-50 justify-center  w-full md:inset-0 h-modal md:h-full"
+          className="overflow-y-auto overflow-x-hidden fixed flex items-center bg-[#00000094]  z-50 justify-center  w-full md:inset-0 h-modal md:h-full"
         >
-          <div class="relative p-4 w-full max-w-md h-full md:h-auto">
-            <div class="relative p-4 text-center bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
+          <div className="relative p-4 w-full max-w-md h-full md:h-auto">
+            <div className="relative p-4 text-center bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
               <button
                 type="button"
-                class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                className="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
                 data-modal-toggle="deleteModal"
               >
                 <svg
                   aria-hidden="true"
-                  class="w-5 h-5"
+                  className="w-5 h-5"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +59,7 @@ export const Confirmation = ({ isClose, id ,docType }) => {
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="sr-only cursor-pointer" onClick={isClose}>
+                <span className="sr-only cursor-pointer" onClick={isClose}>
                   Close modal
                 </span>
               </button>
@@ -67,7 +67,7 @@ export const Confirmation = ({ isClose, id ,docType }) => {
                 <Spinner />
               ) : (
                 <svg
-                  class="text-gray-400 dark:text-gray-500 w-11 h-11 mb-3.5 mx-auto"
+                  className="text-gray-400 dark:text-gray-500 w-11 h-11 mb-3.5 mx-auto"
                   aria-hidden="true"
                   fill="currentColor"
                   viewBox="0 0 20 20"
@@ -82,25 +82,25 @@ export const Confirmation = ({ isClose, id ,docType }) => {
               )}
 
               {message ? (
-                <p class="mb-4 text-green-500 dark:text-gray-300">{message}</p>
+                <p className="mb-4 text-green-500 dark:text-gray-300">{message}</p>
               ) : (
-                <p class="mb-4 text-red-500 dark:text-gray-300">
+                <p className="mb-4 text-red-500 dark:text-gray-300">
                   Are you sure you want to delete this item?
                 </p>
               )}
-              <div class="flex justify-center items-center space-x-4">
+              <div className="flex justify-center items-center space-x-4">
                 <button
                   data-modal-toggle="deleteModal"
                   type="button"
                   onClick={isClose}
-                  class="py-2 px-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                  className="py-2 px-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
                 >
                   No, cancel
                 </button>
                 <button
                   type="submit"
                   onClick={handleDelete}
-                  class="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-900"
+                  className="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-900"
                 >
                   Yes, I'm sure
                 </button>

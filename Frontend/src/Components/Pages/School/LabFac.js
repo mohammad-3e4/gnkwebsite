@@ -22,7 +22,7 @@ export default function LabFac() {
         <li><CheckBadgeIcon className="h-6 w-6 inline text-blue mb-1"/> Reservation and other facilities</li>
         <li><CheckBadgeIcon className="h-6 w-6 inline text-blue mb-1"/> Sports and Games</li>
         <li><CheckBadgeIcon className="h-6 w-6 inline text-blue mb-1"/> Canteen cum Stationery</li>
-        <li><CheckBadgeIcon className="h-6 w-6 inline text-blue mb-1"/> Served Mid day Meal up to class VIII</li>
+        <li><CheckBadgeIcon className="h-6 w-6 inline text-blue mb-1"/> Served Mid day Meal up to className VIII</li>
     </ul>
 
 
@@ -113,7 +113,7 @@ export default function LabFac() {
 
     <h4 style={{ color: "var(--orange)", fontSize: "20px" }} className="font-bold my-5">Rooms</h4>
     <p style={{ fontSize: "18px" }} >
-        Class Rooms Available For Study Purpose - 35 (21 X24 sqr feet)
+        className Rooms Available For Study Purpose - 35 (21 X24 sqr feet)
         <br></br><br></br>
         Lab Purpose - 07 (21 X 24 sqr feet)
         <br></br><br></br>
@@ -128,9 +128,9 @@ export default function LabFac() {
         <br></br><br></br>
         Physical education is an indispensable part of education that contributes to the holistic development of an individual. It helps to develop healthy and responsible students and instills in them various skills and qualities that add to their overall development. A healthy mind lives in a healthy body and thus, School has a lot to offer the students in terms of sports
         <br></br><br></br>
-        The school also has provisions for morning training prior to the routine classes where the students are prepared for various tournaments
+        The school also has provisions for morning training prior to the routine classNamees where the students are prepared for various tournaments
         <br></br><br></br>
-        We also have the Annual Sports Day during which student exhibit their skills in track and field events. The little ones from classes Nursery to XII have a Sports Day where the focus is on skill development, having fun and participation by all.
+        We also have the Annual Sports Day during which student exhibit their skills in track and field events. The little ones from classNamees Nursery to XII have a Sports Day where the focus is on skill development, having fun and participation by all.
     </p>
     <h4 style={{ color: "var(--orange)", fontSize: "20px" }} className="font-bold my-5">The Dimension of  Playground</h4>
     <div className="overflow-x-auto relative">
@@ -204,13 +204,13 @@ export default function LabFac() {
 
     <h4 style={{ color: "var(--orange)", fontSize: "20px" }} className="font-bold my-5">School Library</h4>
     <p style={{ fontSize: "18px" }} >
-        The School library is an active learning and resource centre for staff and students.The school houses a huge Library covering 504 sq.ft. space. The collection of books is large and varied. The quality of books and the rich variety of texts available is the hallmark of the library. Spacious, comfortable and tranquil, the environment is that which encourages and stimulates reading and research interests. The school library has over 4575 books. It subscribes to several newsletters, periodicals, magazines and newspapers. It also has a stock of multimedia materials (CDs and DVDs ) for use in the classes
+        The School library is an active learning and resource centre for staff and students.The school houses a huge Library covering 504 sq.ft. space. The collection of books is large and varied. The quality of books and the rich variety of texts available is the hallmark of the library. Spacious, comfortable and tranquil, the environment is that which encourages and stimulates reading and research interests. The school library has over 4575 books. It subscribes to several newsletters, periodicals, magazines and newspapers. It also has a stock of multimedia materials (CDs and DVDs ) for use in the classNamees
         <br></br><br></br>
         In fact, the library specialises in the reference section where the students are actively encouraged to use the library for independent study and for research towards their presentations and projects.
         <br></br><br></br>
         Library stocks are routinely updated with latest addition of the books available in the market.
         <br></br><br></br>
-        The school library caters to the need of all classes from Nursery to XII.</p>
+        The school library caters to the need of all classNamees from Nursery to XII.</p>
 
     <h4 style={{ color: "var(--orange)", fontSize: "20px" }} className="font-bold my-5 ">Different categories of Books:-</h4>
     <table className="table  w-full">

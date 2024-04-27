@@ -60,7 +60,7 @@ export default function Footer() {
                 </li>
                 <li className="text-white flex items-center pt-1 gap-5">
                   <a
-                    href="https://www.youtube.com/@GuruNanakKhalsa-30b"
+                    href="https://youtube.com/@GuruNanakKhalsa30B?si=3X5vATld63B7MIhI"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
