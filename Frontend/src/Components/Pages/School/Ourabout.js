@@ -4,11 +4,11 @@ import Arrow from "../../Main/Arrow";
 
 export default function OurAbout() {
     return (
-        <> 
-          <Arrow />
+        <div className="lg:mt-20"> 
+          <Arrow  />
             <h2 style={{ textAlign: "center", marginBottom: "40px" }} className="text-3xl font-bold mt-10 tracking-tight text-gray-900 sm:text-4xl">ABOUT <span style={{ color: "var(--orange)" }}>SCHOOL</span> </h2>
 
-            <div className=" p-5 flex justify-center">
+            <div className="p-5 flex justify-center">
 
                 <div className="max-w-7xl">
 
@@ -252,6 +252,6 @@ export default function OurAbout() {
                 </div>
             </div>
 
-        </>
+        </div>
     )
 }

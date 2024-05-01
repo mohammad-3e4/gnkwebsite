@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function Message() {
     return (
-        <>
+        <div className='lg:mt-20'>
             <h2 style={{ color: 'var(--orange)', textAlign: "center", marginBottom: "40px" }} className="text-3xl mt-5 font-bold tracking-tight  sm:text-4xl">MESSAGES </h2>
 
             <div className=' p-sm-1 p-md-4  p-lg-5 flex justify-center'>
@@ -27,6 +27,6 @@ export default function Message() {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }

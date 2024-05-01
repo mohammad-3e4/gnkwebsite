@@ -15,7 +15,7 @@ export default function OurCertificate() {
   }, []);
 
   return (
-    <div className="overflow-scroll w-full h-[500px]">
+    <div className="overflow-scroll w-full h-[500px] lg:mt-20">
       <div className="w-full ">
         <h2
           style={{ marginBottom: "40px" }}

@@ -58,9 +58,9 @@ function AdminActivity() {
     }
 
     return (
-        <div className='flex '>
+        <div className='flex lg:mt-10'>
             <AdminPageLayout />
-            <div className='mb-10 overflow-scroll h-[600px]'>
+            <div className='mb-10 overflow-scroll h-[600px] lg:mt-10'>
             <div className='lg:flex justify-around'>
                 <h2 className="text-3xl my-5 text-center text-blue font-bold tracking-tight sm:text-4xl">
                     <span className='text-orange'>Acitity </span>Images 

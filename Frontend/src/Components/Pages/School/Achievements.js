@@ -4,7 +4,7 @@ import Arrow from "../../Main/Arrow";
 
 export default function Achievements() {
     return (
-        <>
+        <div className="lg:mt-10">
         <Arrow/>
           <div className="flex justify-center ">
             <div className="max-w-7xl p-5 rounded mb-5 mt-5" >
@@ -72,7 +72,7 @@ export default function Achievements() {
 
             </div>
         </div>
-        </>
+        </div>
         
     )
 }

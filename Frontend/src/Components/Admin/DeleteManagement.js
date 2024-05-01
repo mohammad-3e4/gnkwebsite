@@ -57,11 +57,11 @@ export default function DeleteManagement() {
   };
 
   return (
-    <div className="flex ">
+    <div className="flex lg:mt-10 ">
       <AdminPageLayout />
       {message && <AlertBox message={message} />}
   
-      <div className="mt-5 mb-5 px-2">
+      <div className="mt-5 mb-5 px-2 lg:mt-10">
         <div className="w-full">
           <h3
             className="text-center  font-bold"

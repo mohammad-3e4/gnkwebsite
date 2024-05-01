@@ -32,12 +32,12 @@ export default function AdminAdmission() {
 
 
   return (
-    <div className="flex">
+    <div className="flex lg:mt-10">
       <div>
         <AdminPageLayout />
       </div>
 
-      <div className="overflow-scroll w-full h-[80vh]">
+      <div className="overflow-scroll w-full h-[80vh] lg:mt-10">
         <div className="w-full ">
           <h2
             style={{ marginBottom: "40px" }}

@@ -102,7 +102,8 @@ export default function UploadActivity() {
                                
                                 <option value="honour">Honour of Ms.Bakshi</option>
                                 <option value="teej">Teej Celebration</option>
-                                <option value="anitdrug">Anti Drug Day</option>
+                                <option value="labfac">Lab & Faculties</option>
+                        
 
                                
                                 {/* Add more options as needed */}

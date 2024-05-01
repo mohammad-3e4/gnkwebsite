@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Fee() {
   return (
-    <div className="flex justify-center ">
+    <div className="flex justify-center lg:mt-20">
       <div className="mt-5  mb-5  p-3 " style={{ width: "90%" }}>
         <h2
           style={{ textAlign: "center", marginBottom: "40px", color: "var(--blue)" }}

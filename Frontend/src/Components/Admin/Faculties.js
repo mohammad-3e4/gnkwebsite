@@ -64,7 +64,7 @@ export default function Faculties() {
 
     return (
       <>
-        <div className="w-full" key={category}>
+        <div className="w-full" key={category} >
           <div className="overflow-x-auto">
             <h2 className="text-xl text-orange font-semibold my-5">
               {category.toUpperCase()}{" "}
@@ -212,10 +212,10 @@ export default function Faculties() {
     );
   };
   return (
-    <div className="flex">
+    <div className="flex lg:mt-10">
       <AdminPageLayout />
      {message && <AlertBox message={message}/>}
-      <div className="w-full flex justify-center">
+      <div className="w-full flex justify-center lg:mt-5">
         <div style={{ width: "90%" }} className="m-5 p-2 ">
           <div className="container mx-auto">
             <h1 className="text-center text-orange text-2xl font-bold mb-4">

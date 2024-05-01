@@ -5,6 +5,7 @@ import { uploadCarousel, getCarouselSlides} from '../Actions/carousel'
 const initialState = {
   slides: null,
   loading: false,
+  footer: true,
   error: null,
   message: null,
 };
@@ -18,6 +19,9 @@ const carouselSlice = createSlice({
     },
     clearMessage: (state) => {
       state.message = null;
+    },
+    setFooter: (state) => {
+      state.footer = false;
     },
   },
   extraReducers: (builder) => {
@@ -52,6 +56,6 @@ const carouselSlice = createSlice({
   },
 });
 
-export const { clearErrors, clearMessage } = carouselSlice.actions;
+export const { clearErrors, clearMessage,setFooter } = carouselSlice.actions;
 
 export default carouselSlice.reducer;

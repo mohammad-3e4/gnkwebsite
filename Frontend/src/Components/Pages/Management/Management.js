@@ -43,7 +43,7 @@ export default function Management() {
   }, [message, error, dispatch]);
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center lg:mt-20">
       <div className="mt-5 mb-5 p-3" style={{ width: "90%" }}>
         <div className="w-full">
           <h2

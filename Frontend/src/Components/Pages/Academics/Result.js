@@ -20,7 +20,7 @@ export default function Result() {
 
 
     return (
-        <div  className='overflow-scroll w-full h-[500px]'>
+        <div  className='overflow-scroll w-full h-[500px] lg:mt-20'>
             <div className="w-full ">
                 <h2 style={{ marginBottom: "40px" }} className="text-3xl  my-4 text-center font-bold tracking-tight text-orange sm:text-4xl">Result</h2>
 

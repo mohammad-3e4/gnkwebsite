@@ -4,6 +4,7 @@ import {loginUser,updateUser, logoutUser,forgotPassword, resetPassword } from '.
 
 const initialState = {
   user: null,
+
   loading: false,
   error: null,
   message: null,
@@ -20,6 +21,7 @@ const userSlice = createSlice({
     clearMessage: (state) => {
       state.message = null;
     },
+
   },
   extraReducers: (builder) => {
     builder
@@ -92,6 +94,6 @@ const userSlice = createSlice({
   },
 });
 
-export const { clearErrors, clearMessage } = userSlice.actions;
+export const { clearErrors, clearMessage,setFooter } = userSlice.actions;
 
 export default userSlice.reducer;

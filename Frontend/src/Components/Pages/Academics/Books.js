@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Books() {
     return (
-        <>
+        <div className="lg:mt-20">
             <div className="flex justify-center">
                 <div className="flex justify-center p-3 " style={{ width: "90%" }}>
 
@@ -610,6 +610,6 @@ export default function Books() {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }

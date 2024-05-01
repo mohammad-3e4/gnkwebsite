@@ -42,7 +42,7 @@ export default function UploadRecuitment() {
   });
 
   return (
-    <div className="flex items-center ">
+    <div className="flex items-center lg:mt-10 ">
       <AdminPageLayout />
       <div className="w-full flex justify-center items-center">
         <div className="sm:w-4/6 md:w-1/2 lg:w-1/2 rounded">

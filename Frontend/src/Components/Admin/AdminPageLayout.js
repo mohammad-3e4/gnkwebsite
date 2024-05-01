@@ -26,7 +26,7 @@ const AdminPageLayout = () => {
   };
 
   return (
-    <div className="h-[600px] z-30   mt-2 sm:mt-[-16px] md:mt-3 2xl:mt-0 xl:mt-6  ">
+    <div className=" z-100   mt-2 sm:mt-[-16px] md:mt-3 2xl:mt-0 xl:mt-6  ">
       <button
         onClick={toggleSidebar}
         className="inline-flex fixed top-48 z-50 border bg-gray-300  items-center p-2 mt-2 ms-3 text-sm text-white rounded-lg sm:hidden hover:bg-gray-100 hover:text-blue focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"

@@ -24,9 +24,9 @@ export default function Contact() {
           <img
             style={{ width: '100%', objectPosition: '50% 50%', opacity: 0.3, }}
             className="w-full h-full r"
-            src='images/Contact.jpg'
+            src='/contact-bg.jpg'
             alt="ContactBg"
-          />
+          />  
         </div>
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">

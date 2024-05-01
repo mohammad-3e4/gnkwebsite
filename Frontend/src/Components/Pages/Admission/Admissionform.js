@@ -31,11 +31,11 @@ export default function Admissionform() {
   }, [dispatch, message, error]);
 
   return (
-    <div className="flex">
+    <div className="flex lg:mt-10">
       <div>{user && <AdminPageLayout />}</div>
 
       <div className="overflow-scroll w-full h-[80vh]">
-        <div className="w-full ">
+        <div className="w-full lg:mt-10 ">
           <h2
             style={{ marginBottom: "40px" }}
             className="text-3xl text-orange mt-5 text-center font-bold tracking-tight  sm:text-4xl"

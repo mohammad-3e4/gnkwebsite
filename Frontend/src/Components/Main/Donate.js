@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Donate() {
     return (
-        <div className="flex justify-center ">
+        <div className="flex justify-center lg:mt-10 ">
             {/* <div className="w-75 bg-white shadow mt-5 mb-5 p-5 rounded"> */}
             <div className="max-w-7xl  mt-5 mb-5 p-5 ">
 

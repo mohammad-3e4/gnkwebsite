@@ -65,6 +65,7 @@ import UploadRecuitment from "./Components/Admin/UploadRequirement";
 import AdminResult from "./Components/Admin/AdminResult";
 import AdminRequitment from "./Components/Admin/AdminRequitment";
 import RecruitmentResult from "./Components/Pages/Recruitment/RecruitmentResult";
+import LabAndFaculties from "./Components/Pages/School/LabAndFaculties";
 function App() {
   return (
     <BrowserRouter>
@@ -106,12 +107,13 @@ function App() {
         <Route path="/donate" element={<Donate />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/our_video" element={<Video />} />
+        <Route path="/lab-and-faculties" element={<LabAndFaculties />} />
 
         <Route element={<PrivateRoute />}>
-        <Route path="/uploadresult" element={<UploadResult />} />
-        <Route path="/uploadrequitment" element={<UploadRecuitment />} />
-        <Route path="/adminrequitment" element={<AdminRequitment />}/>
-        <Route path="/adminresults" element={<AdminResult />} />
+          <Route path="/uploadresult" element={<UploadResult />} />
+          <Route path="/uploadrequitment" element={<UploadRecuitment />} />
+          <Route path="/adminrequitment" element={<AdminRequitment />} />
+          <Route path="/adminresults" element={<AdminResult />} />
           <Route path="/admin" element={<AdminPageLayout />} />
           <Route path="/uploadfile" element={<UploadFile />} />
           <Route path="/uploadimage" element={<UploadImage />} />

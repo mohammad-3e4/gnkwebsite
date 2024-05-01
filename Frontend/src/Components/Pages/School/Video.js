@@ -20,7 +20,7 @@ export default function Video() {
     };
 
     return (
-        <>
+        <div className='lg:mt-20'>
             <h2 className="text-3xl mt-10 text-center text-blue font-bold tracking-tight sm:text-4xl">
                 <span className='text-orange'>Our</span> Videos
             </h2>
@@ -48,6 +48,6 @@ export default function Video() {
                     }
                 </ul>
             </div>
-        </>
+        </div>
     );
 }

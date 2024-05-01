@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Notice() {
     return (
-        <>
+        <div className="lg:mt-20">
             <h2  className="text-3xl my-10 text-center font-bold tracking-tight text-gray-900 sm:text-4xl"> <span style={{ color: 'var(--orange)' }}> ADVERTISEMET</span>/<span style={{ color: 'var(--orange)' }}> NOTICE</span> </h2>
 
         <div className="my-3 p-3">
@@ -15,6 +15,6 @@ export default function Notice() {
                 <br></br><h4 className="font-bold text-xl">Receptionist-1</h4>
                 <br></br><p>For more information and application form go to News/Updates tab</p>
             </div></div>
-            </>
+            </div>
     )
 }

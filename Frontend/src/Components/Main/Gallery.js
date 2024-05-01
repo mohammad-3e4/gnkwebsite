@@ -48,7 +48,7 @@ function Gallery() {
   // }
 
   return (
-    <div className="mb-10">
+    <div className="mb-10 lg:mt-20">
       <h2 className="text-3xl my-10 text-center text-orange font-bold tracking-tight sm:text-4xl">
         Gallery
       </h2>

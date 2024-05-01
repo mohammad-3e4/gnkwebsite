@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Recruitment() {
     return (
-        <>
+        <div className="lg:mt-20">
             <h2 style={{color:"var(--blue)" }}
                 className="text-3xl text-center my-10 font-bold tracking-tight  sm:text-4xl"
             >         <span style={{ color: "var(--orange)" }}> RECRUITMENT </span>FORM </h2>
@@ -29,6 +29,6 @@ export default function Recruitment() {
                     </h4>
                 </div>
             </div>
-        </>
+        </div>
     );
 }

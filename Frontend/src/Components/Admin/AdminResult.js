@@ -33,12 +33,12 @@ export default function AdminResult() {
 
 
   return (
-    <div className="flex">
+    <div className="flex lg:mt-10">
       <div>
         <AdminPageLayout />
       </div>
 
-      <div className="overflow-scroll w-full h-[80vh]">
+      <div className="overflow-scroll w-full h-[80vh] lg:mt-10">
         <div className="w-full ">
         <div className='lg:flex justify-around'>
                 <h2 className="text-3xl my-5 text-center text-blue font-bold tracking-tight sm:text-4xl">

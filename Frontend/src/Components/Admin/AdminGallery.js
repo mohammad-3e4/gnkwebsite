@@ -48,9 +48,9 @@ function AdminGallery() {
 
     return (
 
-        <div className='flex'>
+        <div className='flex lg:mt-10'>
             <div><AdminPageLayout /></div>
-            <div className='mb-10 overflow-scroll h-[500px]'>
+            <div className='mb-10 overflow-scroll h-[500px] lg:mt-10'>
             <div className='lg:flex justify-around'>
                 <h2 className="text-3xl my-5 text-center text-blue font-bold tracking-tight sm:text-4xl">
                     <span className='text-orange'>Gallery</span> 

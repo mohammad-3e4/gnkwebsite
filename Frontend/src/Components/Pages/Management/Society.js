@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Society() {
   return (
-    <>
+    <div className="lg:mt-20">
       <h2
         style={{
           textAlign: "center",
@@ -66,6 +66,6 @@ export default function Society() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

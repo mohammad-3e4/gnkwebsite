@@ -156,7 +156,7 @@ export default function Faculty() {
     );
   };
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full flex justify-center lg:mt-10">
       <div style={{ width: "90%" }} className="m-5 p-2 ">
         <h2
           style={{ marginBottom: "40px" }}
