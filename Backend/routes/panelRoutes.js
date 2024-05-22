@@ -23,7 +23,7 @@ router
 router
   .route("/panel/joining")
   .post(facultiesJoining);
-router.delete("/panel/faculties/:id", deleteFacultyByID);
+router.route("/panel/faculties/:id").delete(deleteFacultyByID).p;
 router.delete("/panel/salaries/:id", deleteFacultySalaryByID);
 router.post('/panel/entry-of-pta',addEntryOfPTA)
 router.get('/panel/entries',getEntriesOfPTA)
