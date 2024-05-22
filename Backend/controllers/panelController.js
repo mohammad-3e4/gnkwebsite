@@ -119,6 +119,31 @@ exports.deleteFacultyByID = catchAsyncErrors(async (req, res, next) => {
   }
 });
 
+exports.updateFaculty = catchAsyncErrors(async (req, res, next) => {
+  const updatedFields = req.body;
+  const { id } = req.params;
+  const updateFieldsString = Object.keys(updatedFields)
+    .map((key) => `${key}="${updatedFields[key]}"`)
+    .join(", ");
+
+  const sql = `UPDATE faulty_joining SET ${updateFieldsString} WHERE id = '${Number(
+    id
+  )}';`;
+
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.error("Error during update:", err);
+      next(new ErrorHandler("Error during update", 500));
+    }
+
+    if (result.affectedRows > 0) {
+      res.status(200).json({ success: true, message: "Update successful" });
+    } else {
+      next(new ErrorHandler("User not found or no changes applied", 404));
+    }
+  });
+});
+
 exports.facultiesJoining = catchAsyncErrors(async (req, res) => {
   const {
     name,
@@ -210,32 +235,35 @@ exports.deleteEntriesOfPTA = catchAsyncErrors(async (req, res) => {
     res.json({ message: "Data deleted successfully" });
   });
 });
-exports.addEntryOfSMC = catchAsyncErrors(async(req, res) => {
+exports.addEntryOfSMC = catchAsyncErrors(async (req, res) => {
   const name = req.body.name;
   const address = req.body.address;
   const designation = req.body.designation;
 
   try {
-    const result = await db.promise().query(
-      "INSERT INTO managing_commitee (name, address,designation) VALUES (?, ?, ?)",
-      [name, address, designation]
-    );
+    const result = await db
+      .promise()
+      .query(
+        "INSERT INTO managing_commitee (name, address,designation) VALUES (?, ?, ?)",
+        [name, address, designation]
+      );
     console.log("Data inserted successfully");
-    res.status(200).json({message:"Data inserted successfully"});
+    res.status(200).json({ message: "Data inserted successfully" });
   } catch (error) {
     console.error("Error inserting data:", error);
-    res.status(500).json({error:error.message});
+    res.status(500).json({ error: error.message });
   }
 });
 
-exports.getEntriesOfSMC = catchAsyncErrors(async(req, res) => {
+exports.getEntriesOfSMC = catchAsyncErrors(async (req, res) => {
   try {
-    const [rows, fields] = await db.promise().query("SELECT * FROM managing_commitee");
-    res.status(200).json({members:rows});
-
+    const [rows, fields] = await db
+      .promise()
+      .query("SELECT * FROM managing_commitee");
+    res.status(200).json({ members: rows });
   } catch (error) {
     console.error(error);
-    res.status(500).json({error:error.message});
+    res.status(500).json({ error: error.message });
   }
 });
 exports.deleteEntriesOfSMC = catchAsyncErrors(async (req, res) => {
