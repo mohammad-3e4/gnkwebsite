@@ -12,6 +12,7 @@ const {
   addEntryOfPTA,
   getEntriesOfPTA,
   deleteEntriesOfPTA,
+  updateFaculty,
   addEntryOfSMC, getEntriesOfSMC, deleteEntriesOfSMC
 } = require("../controllers/panelController");
 
@@ -23,7 +24,7 @@ router
 router
   .route("/panel/joining")
   .post(facultiesJoining);
-router.route("/panel/faculties/:id").delete(deleteFacultyByID).p;
+router.route("/panel/faculties/:id").delete(deleteFacultyByID).post(updateFaculty);
 router.delete("/panel/salaries/:id", deleteFacultySalaryByID);
 router.post('/panel/entry-of-pta',addEntryOfPTA)
 router.get('/panel/entries',getEntriesOfPTA)

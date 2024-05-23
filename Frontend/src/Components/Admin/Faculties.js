@@ -61,12 +61,13 @@ export default function Faculties() {
 
   const handleDeleteSalary = async (id) => {
     dispatch(deleteFacultySalary({ id, token }));
-    const data = await getSalaries(); // Fetch updated salary data after deletion
+    const data = await getSalaries(); 
     setSalaries(data.salaries);
   };
 
   const handleEdit = (faculty, isSalary = false) => {
     setEditFacultyData(faculty);
+    console.log(faculty);
     setIsEditingSalary(isSalary);
     setIsEditPopupOpen(true);
   };
@@ -77,6 +78,7 @@ export default function Faculties() {
   };
 
   const handleSave = () => {
+    console.log(editFacultyData);
     // Implement the logic to save the edited data
     // Example: dispatch(updateFacultyEntry({ ...editFacultyData, token }));
     closeEditPopup();
@@ -314,20 +316,7 @@ export default function Faculties() {
                 />
               </div>
         
-              <div className="mb-4">
-                <label className="block text-gray-700">Qualification</label>
-                <input
-                  type="text"
-                  className="w-full border px-3 py-2"
-                  value={editFacultyData.qualification}
-                  onChange={(e) =>
-                    setEditFacultyData({
-                      ...editFacultyData,
-                      name: e.target.value,
-                    })
-                  }
-                />
-              </div>
+             
               <div className="mb-4">
                 <label className="block text-gray-700">Qualification</label>
                 <input

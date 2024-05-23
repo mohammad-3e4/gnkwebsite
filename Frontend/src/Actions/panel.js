@@ -69,7 +69,7 @@ export const listOffaculties = createAsyncThunk(
         {}
       );
       const responseData = await response.json(); // Parse response once
-      console.log(responseData);
+  
       if (!response.ok) {
         console.log(responseData); // Log error data
         throw new Error(responseData.error);
@@ -183,6 +183,33 @@ export const deleteFacultyEntry = createAsyncThunk(
           "Content-Type": "application/json",
           "Authorization": `Bearer ${token}`,
         }
+      });
+      const responseData = await response.json(); // Parse response once
+      console.log(responseData);
+      if (!response.ok) {
+        console.log(responseData); // Log error data
+        throw new Error(responseData.error);
+      }
+
+      return responseData; // Return data on success
+    } catch (error) {
+      console.log(error);
+      // Handle error
+      return thunkAPI.rejectWithValue({ error: error.message });
+    }
+  }
+);
+export const updateFacultyEntry = createAsyncThunk(
+  "panel/updateFacultyEntry",
+  async ({values, id, token}, thunkAPI) => {
+    try {
+      const response = await fetch(`${baseUrl}/api/v2/admin/panel/faculties/${id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+        body: JSON.stringify(values),
       });
       const responseData = await response.json(); // Parse response once
       console.log(responseData);
