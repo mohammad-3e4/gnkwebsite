@@ -1,7 +1,36 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { getDocuments, deleteByIdDocuments } from "../../../Actions/documents";
+import { useDispatch, useSelector } from "react-redux";
+import { clearErrors, clearMessage } from "../../../redux/documentsSlice";
 export default function Fee() {
+
+
+  const dispatch = useDispatch();
+  const { loading, error, message, documents } = useSelector(
+    (state) => state.documents
+  );
+  const { user } = useSelector((state) => state.user);
+  const token = localStorage.getItem("token");
+  const [id, setId] = useState();
+
+  useEffect(() => {
+    dispatch(getDocuments({ docType: "fee_structure", token }));
+    if (error) {
+      const errorInterval = setInterval(() => {
+        dispatch(clearErrors());
+      }, 3000);
+      return () => clearInterval(errorInterval);
+    }
+    if (message) {
+      const messageInterval = setInterval(() => {
+        dispatch(clearMessage());
+      }, 3000);
+      return () => clearInterval(messageInterval);
+    }
+  }, [dispatch, message, error]);
   return (
+    
     <div className="flex justify-center lg:mt-20">
       <div className="mt-5  mb-5  p-3 " style={{ width: "90%" }}>
         <h2
@@ -22,109 +51,20 @@ export default function Fee() {
               </tr>
             </thead>
             <tbody>
-              <tr className=" transition duration-400 hover:bg-gray-100" >
-                <th scope="row" className="border border-slate-400  px-4 py-2 ">1</th>
-                <td className=" px-4 py-2 border border-slate-400">Pre Nursery</td>
-                <td className="px-4 py-2 border border-slate-400">
-                  (Including April to June Fee)/
-                  <span className="text-orange">Quarterly ( 3 Months)</span>
-                </td>
-                <td className="px-4 py-2 border border-slate-400">
-                  8600/-/<span className="text-orange">3600/-</span>
-                </td>
-              </tr>
-              <tr className=" transition duration-400 hover:bg-gray-100" >
-                <th scope="row" className="border border-slate-400  px-4 py-2">
-                  2
-                </th>
-                <td className="px-4 py-2 border border-slate-400">Nursery and KG</td>
-                <td className="px-4 py-2 border border-slate-400">
-                  (Including April to June Fee)/
-                  <span className="text-orange">Quarterly ( 3 Months)</span>
-                </td>
-                <td className="px-4 py-2 border border-slate-400">
-                  6100/-/<span className="text-orange">3600/-</span>
-                </td>
-              </tr>
-              <tr className=" transition duration-400 hover:bg-gray-100">
-                <th scope="row" className="border border-slate-400  px-4 py-2">
-                  3
-                </th>
-                <td className="px-4 py-2 border border-slate-400">1st to 5th</td>
-                <td className="px-4 py-2 border border-slate-400">
-                  (Including April to June Fee)/
-                  <span className="text-orange">Quarterly ( 3 Months)</span>
-                </td>
-                <td className="px-4 py-2 border border-slate-400">
-                  3290/-/<span className="text-orange">1770/-</span>
-                </td>
-              </tr>
-              <tr className=" transition duration-400 hover:bg-gray-100">
-                <th scope="row" className="border border-slate-400  px-4 py-2">
-                  4
-                </th>
-                <td className="px-4 py-2 border border-slate-400">6th to 8th</td>
-                <td className="px-4 py-2 border border-slate-400">
-                  (Including April to June Fee)/
-                  <span className="text-orange">Quarterly ( 3 Months)</span>
-                </td>
-                <td className="px-4 py-2 border border-slate-400">
-                  3780/-/<span className="text-orange">2160/-</span>
-                </td>
-              </tr>
-              <tr className=" transition duration-400 hover:bg-gray-100">
-                <th scope="row" className="border border-slate-400  px-4 py-2">
-                  5
-                </th>
-                <td className="px-4 py-2 border border-slate-400">9th to 10th</td>
-                <td className="px-4 py-2 border border-slate-400">
-                  (Including April to June Fee)/
-                  <span className="text-orange">Quarterly ( 3 Months)</span>
-                </td>
-                <td className="px-4 py-2 border border-slate-400">
-                  4210/-/<span className="text-orange">2370/-</span>
-                </td>
-              </tr>
-              <tr className=" transition duration-400 hover:bg-gray-100">
-                <th scope="row" className="border border-slate-400  px-4 py-2">
-                  6
-                </th>
-                <td className="px-4 py-2 border border-slate-400">+1 & +2 Arts</td>
-                <td className="px-4 py-2 border border-slate-400">
-                  (Including April to June Fee)/
-                  <span className="text-orange">Quarterly ( 3 Months)</span>
-                </td>
-                <td className="px-4 py-2 border border-slate-400">
-                  14600/- & 12900/-/<span className="text-orange">6900/-</span>
-                </td>
-              </tr>
-              <tr className=" transition duration-400 hover:bg-gray-100">
-                <th scope="row" className="border border-slate-400  px-4 py-2">
-                  7
-                </th>
-                <td className="px-4 py-2 border border-slate-400">+1 & +2 Commerce</td>
-                <td className="px-4 py-2 border border-slate-400">
-                  (Including April to June Fee)/
-                  <span className="text-orange">Quarterly ( 3 Months)</span>
-                </td>
-                <td className="px-4 py-2 border border-slate-400">
-                  15500/- & 14000/-/<span className="text-orange">7500/-</span>
-                </td>
-              </tr>
-              <tr className=" transition duration-400 hover:bg-gray-100" >
-                <th scope="row" className="border border-slate-400  px-4 py-2">
-                  8
-                </th>
-                <td className="px-4 py-2 border border-slate-400">+1 & +2 Science</td>
-                <td className="px-4 py-2 border border-slate-400">
-                  (Including April to June Fee)/
-                  <span className="text-orange">Quarterly ( 3 Months)</span>
-                </td>
-                <td className="px-4 py-2 border border-slate-400">
-                  16600/- & 15100/-<span className="text-orange">8100/-</span>
-                </td>
-              </tr>
-            </tbody>
+              {documents?.map((item, index) => (
+                <tr key={index} className="transition duration-400 hover:bg-gray-100">
+                  <th scope="row" className="border border-slate-400 px-4 py-2">{index + 1}</th>
+                  <td className="px-4 py-2 border border-slate-400">{item.class_name}</td>
+                  <td className="px-4 py-2 border border-slate-400">
+                    {item.time}
+                  </td>
+                  <td className="px-4 py-2 border border-slate-400">
+                    {item.fees}
+                  </td>
+                </tr>
+              ))}
+              </tbody>
+
           </table>
         </div>
       </div>

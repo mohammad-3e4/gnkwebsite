@@ -5,7 +5,7 @@ import { getDocuments } from "../../../Actions/documents";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, clearMessage } from "../../../redux/documentsSlice";
 
-function SchoolAffiliation() {
+function Disclosure() {
   const [files, setFiles] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [id, setId] = useState()
@@ -15,7 +15,7 @@ function SchoolAffiliation() {
   );
   const token = localStorage.getItem("token");
   useEffect(() => {
-    dispatch(getDocuments({ docType: "SchoolAffiliation", token }));
+    dispatch(getDocuments({ docType: "disclosure", token }));
   }, []);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function SchoolAffiliation() {
       <div className=" lg:my-20 m-auto w-full ">
         <div className="flex justify-center w-full items-center gap-10">
           <h2 className="text-3xl my-5 text-center text-blue font-bold tracking-tight sm:text-4xl">
-            <span className="text-orange">SchoolAffiliation</span>
+            <span className="text-orange">Disclosure</span>
           </h2>
           {token && (
             <button onClick={() => setShowModal(true)}>
@@ -47,7 +47,7 @@ function SchoolAffiliation() {
                 className="inline-block  align-baseline border border-orange py-2 px-8 rounded font-bold text-sm text-white bg-orange "
                 a
               >
-                Upload SchoolAffiliation
+                Upload Disclosure
               </div>
             </button>
           )}
@@ -58,7 +58,7 @@ function SchoolAffiliation() {
               <div className=" bg-orange-500">
                 <img
                   className="h-60 w-60 aspect-square duration-200"
-                  src={`/uploads/SchoolAffiliation/${file.file_name}`}
+                  src={`/uploads/Disclosure/${file.file_name}`}
                   alt={`${file.file_name} is not available`}
                 />
               </div>
@@ -90,14 +90,14 @@ function SchoolAffiliation() {
         </div>
       </div>
       {showModal && (
-        <UploadModal docType="SchoolAffiliation" isClose={() => setShowModal(false)} />
+        <UploadModal docType="Disclosure" isClose={() => setShowModal(false)} />
       )}
       {id && (
-        <Confirmation id={id} docType="SchoolAffiliation" isClose={() => setId(null)} />
+        <Confirmation id={id} docType="disclosure" isClose={() => setId(null)} />
       )}
 
     </div>
   );
 }
 
-export default SchoolAffiliation;
+export default Disclosure;

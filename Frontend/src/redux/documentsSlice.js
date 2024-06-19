@@ -1,6 +1,6 @@
 // documentsSlice.js
 import { createSlice } from "@reduxjs/toolkit";
-import { uploadDocuments, getDocuments, deleteByIdDocuments} from '../Actions/documents'
+import { uploadDocuments, getDocuments, deleteByIdDocuments,updateDocuments} from '../Actions/documents'
 
 const initialState = {
   documents: null,
@@ -32,6 +32,19 @@ const documentsSlice = createSlice({
         state.message = action.payload.message;
       })
       .addCase(uploadDocuments.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload.error;
+      })
+      .addCase(updateDocuments.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(updateDocuments.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        state.message = action.payload.message;
+      })
+      .addCase(updateDocuments.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload.error;
       })

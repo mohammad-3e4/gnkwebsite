@@ -20,7 +20,7 @@ export default function RecruitmentResult() {
 
     return (
         <div  className='overflow-scroll w-full h-[500px]'>
-            <div className="w-full ">
+            <div className="w-full pt-16">
                 <h2 style={{ marginBottom: "40px" }} className="text-3xl  my-4 text-center font-bold tracking-tight text-orange sm:text-4xl">Requitement Result</h2>
 
                 <div className='w-full  flex justify-center items-center h-full '>

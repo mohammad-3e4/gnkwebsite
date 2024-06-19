@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AdminPageLayout from "./AdminPageLayout";
-import { getDocuments, deleteByIdDocuments } from "../../Actions/documents";
+import { getDocuments } from "../../Actions/documents";
 import { useDispatch, useSelector } from "react-redux";
 import { Confirmation } from "../Confirmation";
 import { clearErrors, clearMessage } from "../../redux/documentsSlice";

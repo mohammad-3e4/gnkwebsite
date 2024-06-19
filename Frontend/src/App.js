@@ -26,7 +26,7 @@ import Strength from "./Components/Pages/School/Strength";
 import Main from "./Components/Main/Main";
 import OurCertificate from "./Components/Pages/School/OurCertificate";
 import IconsProps from "./Components/IconProps";
-import SchoolDisclosure from "./Components/Pages/School/SchoolDisclosure";
+import Disclosure from "./Components/Pages/School/Disclosure";
 import SchoolAffiliation from "./Components/Pages/School/SchoolAffiliation";
 import Timetable from "./Components/Pages/Academics/TimeTable";
 import AdminPageLayout from "./Components/Admin/AdminPageLayout";
@@ -65,7 +65,9 @@ import UploadRecuitment from "./Components/Admin/UploadRequirement";
 import AdminResult from "./Components/Admin/AdminResult";
 import AdminRequitment from "./Components/Admin/AdminRequitment";
 import RecruitmentResult from "./Components/Pages/Recruitment/RecruitmentResult";
-import LabAndFaculties from "./Components/Pages/School/LabAndFaculties";
+import LabAndFacilities from "./Components/Pages/School/LabAndFacilities";
+import AdminFees from "./Components/Admin/AdminFees";
+import UploadNews from "./Components/Admin/UploadNews";
 function App() {
   return (
     <BrowserRouter>
@@ -100,22 +102,25 @@ function App() {
         <Route path="/student_strength" element={<Strength />} />
         <Route path="/our_certificates" element={<OurCertificate />} />
         <Route path="/school_affiliation" element={<SchoolAffiliation />} />
-        <Route path="/school_disclosure" element={<SchoolDisclosure />} />
+        <Route path="/disclosure" element={<Disclosure />} />
         <Route path="/time_table" element={<Timetable />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/activities" element={<OurActivity />} />
         <Route path="/donate" element={<Donate />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/our_video" element={<Video />} />
-        <Route path="/lab-and-faculties" element={<LabAndFaculties />} />
-
+        <Route path="/lab-and-facilties" element={<LabAndFacilities />} />
+        <Route path="/adminactivity" element={<AdminActivity />} />
         <Route element={<PrivateRoute />}>
           <Route path="/uploadresult" element={<UploadResult />} />
           <Route path="/uploadrequitment" element={<UploadRecuitment />} />
           <Route path="/adminrequitment" element={<AdminRequitment />} />
           <Route path="/adminresults" element={<AdminResult />} />
+          <Route path="/adminfees" element={<AdminFees />} />
+
           <Route path="/admin" element={<AdminPageLayout />} />
           <Route path="/uploadfile" element={<UploadFile />} />
+          <Route path="/uploadnews" element={<UploadNews />} />
           <Route path="/uploadimage" element={<UploadImage />} />
           <Route path="/uploadvideo" element={<UploadVideo />} />
 
@@ -136,7 +141,7 @@ function App() {
           <Route path="/admisson/forms" element={<AdminAdmission />} />
           <Route path="/deleteimage" element={<AdminGallery />} />
           <Route path="/adminvideo" element={<AdminVideo />} />
-          <Route path="/adminactivity" element={<AdminActivity />} />
+         
           <Route path="/delete_mangement" element={<DeleteManagement />} />
           <Route path="/facultysalary" element={<FacultySalary />} />
           <Route path="/facultyjoining" element={<FacultyJoining />} />

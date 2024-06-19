@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import ErrorAlert from "../ErrorAlert";
-import {  clearErrors } from "../../redux/userSlice";
-import {loginUser } from '../../Actions/user'
+import { clearErrors } from "../../redux/userSlice";
+import { loginUser } from "../../Actions/user";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Spinner from "../Spinner";
@@ -29,7 +29,6 @@ const Signin = () => {
     initialValues,
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      console.log(values);
       dispatch(loginUser(values));
     },
   });
@@ -63,7 +62,6 @@ const Signin = () => {
       </div>
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <form className="space-y-6" onSubmit={formik.handleSubmit}>
-      
           <div>
             <div className="flex items-center justify-between ">
               <label

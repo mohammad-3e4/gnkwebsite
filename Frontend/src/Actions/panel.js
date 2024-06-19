@@ -201,15 +201,15 @@ export const deleteFacultyEntry = createAsyncThunk(
 );
 export const updateFacultyEntry = createAsyncThunk(
   "panel/updateFacultyEntry",
-  async ({values, id, token}, thunkAPI) => {
+  async ({editFacultyData,tablename, token }, thunkAPI) => {
     try {
-      const response = await fetch(`${baseUrl}/api/v2/admin/panel/faculties/${id}`, {
+      const response = await fetch(`${baseUrl}/api/v2/admin/panel/faculties/${editFacultyData.id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${token}`,
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify({editFacultyData,tablename}),
       });
       const responseData = await response.json(); // Parse response once
       console.log(responseData);

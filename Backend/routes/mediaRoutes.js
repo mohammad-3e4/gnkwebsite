@@ -12,6 +12,8 @@ router.get("/gallery", getGalleryImages);
 router.get("/highlights", getHighlights);
 
 router.get("/videos", getVideos);
+router.post("/uploadgallery", uploadGalleryImage);
+
 router.post("/uploadvideo", uploadVideo);
 router.delete("/deletegalleryimage/:id", deleteDocumentByTypeAndId);
 router.get("/news", getNews);

@@ -19,16 +19,17 @@ exports.uploadCarousel = catchAsyncErrors(async (req, res, next) => {
       __dirname,
       "..",
       "..",
-      "frontend",
+      "Frontend",
       "public",
       "uploads",
-      "carousel",
+      "carousel"
     );
 
     fs.mkdirSync(folderPath, { recursive: true });
-    const filePath = path.join(folderPath, file.name);
+    const filename = file.name.split(" ").join("_").toLowerCase();
+    const filePath = path.join(folderPath, filename);
     await file.mv(filePath);
-    await uploadCarousel(slide, file.name);
+    await uploadCarousel(slide, filename);
 
     res.status(200).json({ message: "File uploaded successfully" });
   } catch (error) {
@@ -83,7 +84,6 @@ async function uploadCarousel(slide, fileName) {
 
 // Usage in Express route handle
 exports.getCarousels = catchAsyncErrors(async (req, res, next) => {
-
   try {
     const query = `SELECT * FROM carousel;`;
 
@@ -104,7 +104,6 @@ exports.getCarousels = catchAsyncErrors(async (req, res, next) => {
   }
 });
 exports.getGalleryImages = catchAsyncErrors(async (req, res, next) => {
-
   try {
     const query = `SELECT * FROM images;`;
 
@@ -124,7 +123,6 @@ exports.getGalleryImages = catchAsyncErrors(async (req, res, next) => {
     res.status(500).json({ error: error.message });
   }
 });
-
 
 exports.deleteDocumentByTypeAndId = catchAsyncErrors(async (req, res, next) => {
   const docType = req.params.docType;
@@ -154,7 +152,6 @@ exports.deleteDocumentByTypeAndId = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.getVideos = catchAsyncErrors(async (req, res, next) => {
-
   try {
     const query = `SELECT * FROM videos;`;
 
@@ -175,31 +172,31 @@ exports.getVideos = catchAsyncErrors(async (req, res, next) => {
   }
 });
 
-
 exports.uploadVideo = catchAsyncErrors(async (req, res, next) => {
   const link = req.body.videolink;
   const title = req.body.videotitle;
-  console.log(link,title)
+  console.log(link, title);
   if (!link) {
     return res.status(400).json({ message: "No video uploaded" });
   }
 
   try {
-
-        const result = await db.promise().query(
-          `INSERT INTO videos (videolink, videotitle) VALUES ('${link}', '${title}')`
-        );
-        res.status(200).json({ message: "video uploaded successfully" });
-      } catch (error) {
-        console.error("Error inserting video:", error);
-        res.status(500).send("Error inserting video");
-      }
+    const result = await db
+      .promise()
+      .query(
+        `INSERT INTO videos (videolink, videotitle) VALUES ('${link}', '${title}')`
+      );
+    res.status(200).json({ message: "video uploaded successfully" });
+  } catch (error) {
+    console.error("Error inserting video:", error);
+    res.status(500).send("Error inserting video");
+  }
 });
 
 exports.uploadGalleryImage = catchAsyncErrors(async (req, res, next) => {
   const docType = req.body.docType;
   const file = req.files.file;
-  console.log(docType)
+  console.log(docType);
   if (!file) {
     return res.status(400).json({ message: "No file uploaded" });
   }
@@ -209,26 +206,26 @@ exports.uploadGalleryImage = catchAsyncErrors(async (req, res, next) => {
       __dirname,
       "..",
       "..",
-      "frontend",
+      "Frontend",
       "public",
       "uploads",
       docType
     );
 
     fs.mkdirSync(folderPath, { recursive: true });
-
-    const filePath = path.join(folderPath, file.name);
+    const filename = file.name.split(" ").join("_").toLowerCase();
+    const filePath = path.join(folderPath, filename);
     await file.mv(filePath);
-    await updateDocumentName(file.name, docType);
+    await updateDocumentName(filename, docType);
 
-    res.status(200).json({ message: "image uploaded successfully" });
+    await res.status(200).json({ message: "image uploaded successfully" });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: error.message });
   }
 });
 
-function updateDocumentName(fileName,docType) {
+function updateDocumentName(fileName, docType) {
   return new Promise((resolve, reject) => {
     const insertQuery = `INSERT INTO ${docType} (file_name) VALUES (?)`;
     db.query(insertQuery, [fileName], (err, results) => {
@@ -240,7 +237,6 @@ function updateDocumentName(fileName,docType) {
     });
   });
 }
-
 
 // exports.deleteGalleryImage = catchAsyncErrors(async (req, res, next) => {
 //   const imageName = req.params.imagename;
@@ -290,26 +286,23 @@ exports.getNews = catchAsyncErrors(async (req, res, next) => {
 });
 /////////////////////////////////////////////////////////////////
 
-
 exports.uploadhighlight = catchAsyncErrors(async (req, res, next) => {
   const content = req.body.content;
   if (!content) {
     return res.status(400).json({ message: "No highlight uploaded" });
   }
   try {
-
-        const result = await db.promise().query(
-          `INSERT INTO highlight (content) VALUES ('${content}')`
-        );
-        res.status(200).json({ message: "highlight uploaded successfully" });
-      } catch (error) {
-        console.error("Error inserting highlight:", error);
-        res.status(500).send("Error inserting highlight");
-      }
+    const result = await db
+      .promise()
+      .query(`INSERT INTO highlight (content) VALUES ('${content}')`);
+    res.status(200).json({ message: "highlight uploaded successfully" });
+  } catch (error) {
+    console.error("Error inserting highlight:", error);
+    res.status(500).send("Error inserting highlight");
+  }
 });
 
 exports.getFirstActivity = catchAsyncErrors(async (req, res, next) => {
-
   try {
     const query = `SELECT MIN(id) AS id, activity, MIN(file_name) AS file_name 
     FROM activity 
@@ -333,7 +326,7 @@ exports.getFirstActivity = catchAsyncErrors(async (req, res, next) => {
   }
 });
 exports.getOneActivity = catchAsyncErrors(async (req, res, next) => {
-  const activityName=req.params.activityName
+  const activityName = req.params.activityName;
   try {
     const query = `SELECT * from activity where activity ='${activityName}';`;
 
@@ -346,13 +339,14 @@ exports.getOneActivity = catchAsyncErrors(async (req, res, next) => {
       if (!results || results.length === 0) {
         return res.status(404).json({ message: "No activity found" });
       }
-      res.status(200).json({oneactivity: results });
+      res.status(200).json({ oneactivity: results });
     });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: error.message });
   }
 });
+
 exports.uploadActivityImage = catchAsyncErrors(async (req, res, next) => {
   const docType = req.body.docType;
   const file = req.files.file;
@@ -367,17 +361,17 @@ exports.uploadActivityImage = catchAsyncErrors(async (req, res, next) => {
       __dirname,
       "..",
       "..",
-      "frontend",
+      "Frontend",
       "public",
       "uploads",
       docType
     );
 
     fs.mkdirSync(folderPath, { recursive: true });
-
-    const filePath = path.join(folderPath, file.name);
+    const filename = file.name.split(' ').join('_').toLowerCase();
+    const filePath = path.join(folderPath, filename);
     await file.mv(filePath);
-    await updateActivity(file.name, docType,activity);
+    await updateActivity(filename, docType, activity);
 
     res.status(200).json({ message: "image uploaded successfully" });
   } catch (error) {
@@ -385,10 +379,10 @@ exports.uploadActivityImage = catchAsyncErrors(async (req, res, next) => {
     res.status(500).json({ error: error.message });
   }
 });
-function updateActivity(fileName,docType,activity) {
+function updateActivity(fileName, docType, activity) {
   return new Promise((resolve, reject) => {
     const insertQuery = `INSERT INTO ${docType} (file_name,activity) VALUES (?,?)`;
-    db.query(insertQuery, [fileName,activity], (err, results) => {
+    db.query(insertQuery, [fileName, activity], (err, results) => {
       if (err) {
         reject(err);
         return;
@@ -397,5 +391,3 @@ function updateActivity(fileName,docType,activity) {
     });
   });
 }
-
-

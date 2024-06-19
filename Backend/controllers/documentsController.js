@@ -21,7 +21,7 @@ exports.uploadDocuments = catchAsyncErrors(async (req, res, next) => {
       __dirname,
       "..",
       "..",
-      "frontend",
+      "Frontend",
       "public",
       "uploads",
       docType
@@ -29,13 +29,10 @@ exports.uploadDocuments = catchAsyncErrors(async (req, res, next) => {
 
     fs.mkdirSync(folderPath, { recursive: true });
 
-    // Move the uploaded file to the folder
-    // const [_, fileType] = file.name.split(".");
-
-    // const fileName = `${studentId}_${documentName}.${fileType}`;
-    const filePath = path.join(folderPath, file.name);
+    const filename = file.name.split(" ").join("_").toLowerCase();
+    const filePath = path.join(folderPath, filename);
     await file.mv(filePath);
-    await updateDocumentName(file.name, description, docType, date);
+    await updateDocumentName(filename, description, docType, date);
 
     res.status(200).json({ message: "File uploaded successfully" });
   } catch (error) {
@@ -56,9 +53,9 @@ function updateDocumentName(fileName, description, docType, date) {
     });
   });
 }
+
 exports.getDocumentsByType = catchAsyncErrors(async (req, res, next) => {
   const docType = req.params.docType;
-  console.log(docType);
   try {
     const query = `SELECT * FROM ${docType}`;
 
@@ -81,10 +78,10 @@ exports.getDocumentsByType = catchAsyncErrors(async (req, res, next) => {
 exports.deleteDocumentByTypeAndId = catchAsyncErrors(async (req, res, next) => {
   const docType = req.params.docType;
   const docID = req.params.docID;
- console.log("from",docType);
+
   try {
     const query = `DELETE FROM ${docType} WHERE id = ?`;
-  console.log(query);
+    console.log(query);
     db.query(query, [docID], (err, result) => {
       if (err) {
         console.log(err);
@@ -128,7 +125,6 @@ exports.getResult = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.getRecruitmentResult = catchAsyncErrors(async (req, res, next) => {
-
   try {
     const query = `SELECT * FROM recuitment`;
 
@@ -141,6 +137,37 @@ exports.getRecruitmentResult = catchAsyncErrors(async (req, res, next) => {
         return res.status(404).json({ message: "No result found" });
       }
       res.status(200).json({ result: results });
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+exports.updateFeeStructure = catchAsyncErrors(async (req, res, next) => {
+  try {
+    // Extract data from request body
+    const { id, class_name, time, fees } = req.body;
+
+    // Construct the SQL query
+    const query = `UPDATE fee_structure SET class_name = ?, time = ?, fees = ? WHERE fee_id = ?`;
+
+    // Execute the query
+    db.query(query, [class_name, time, fees, id], (err, results) => {
+      if (err) {
+        return res.status(500).json({ error: "Error updating fee structure" });
+      }
+
+      if (results.affectedRows === 0) {
+        return res
+          .status(404)
+          .json({ message: "No fee structure found with the given id" });
+      }
+
+      res.status(200).json({
+        message: "Fee structure updated successfully",
+        result: results,
+      });
     });
   } catch (error) {
     console.log(error);

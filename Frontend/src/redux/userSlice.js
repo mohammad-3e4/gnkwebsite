@@ -4,11 +4,9 @@ import {loginUser,updateUser, logoutUser,forgotPassword, resetPassword } from '.
 
 const initialState = {
   user: null,
-
   loading: false,
   error: null,
   message: null,
-
 };
 
 const userSlice = createSlice({

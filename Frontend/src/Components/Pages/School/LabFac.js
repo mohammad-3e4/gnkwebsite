@@ -3,6 +3,7 @@ import React from "react";
 import Arrow from "../../Main/Arrow";
 import { Link } from "react-router-dom";
 export default function LabFac() {
+  
   return (
     <div className="lg:mt-20">
       <Arrow />
@@ -26,7 +27,7 @@ export default function LabFac() {
               {" "}
                 <span className="text-sm text-blue-700 font-normal">
               {" "}
-              <Link to="/lab-and-faculties">see gallery</Link>
+              <Link to="/lab-and-facilties">see gallery</Link>
             </span>
             </span>
           </h4>
@@ -81,7 +82,7 @@ export default function LabFac() {
               {" "}
                 <span className="text-sm text-blue-700 font-normal">
               {" "}
-              <Link to="/lab-and-faculties">see gallery</Link>
+              <Link to="/lab-and-facilties">see gallery</Link>
             </span>
             </span>
           </h4>
@@ -102,7 +103,7 @@ export default function LabFac() {
               {" "}
                 <span className="text-sm text-blue-700 font-normal">
               {" "}
-              <Link to="/lab-and-faculties">see gallery</Link>
+              <Link to="/lab-and-facilties">see gallery</Link>
             </span>
             </span>
           </h4>
@@ -250,7 +251,7 @@ export default function LabFac() {
               {" "}
                 <span className="text-sm text-blue-700 font-normal">
               {" "}
-              <Link to="/lab-and-faculties">see gallery</Link>
+              <Link to="/lab-and-facilties">see gallery</Link>
             </span>
             </span>
           </h4>
@@ -391,7 +392,7 @@ export default function LabFac() {
               {" "}
                 <span className="text-sm text-blue-700 font-normal">
               {" "}
-              <Link to="/lab-and-faculties">see gallery</Link>
+              <Link to="/lab-and-facilties">see gallery</Link>
             </span>
             </span>
           </h4>
@@ -425,7 +426,7 @@ export default function LabFac() {
             style={{ color: "var(--orange)", fontSize: "20px" }}
             className="font-bold my-5 "
           >
-            Different categories of Books:- <span className="text-xs font-normal"> <Link to='/lab-and-faculties'>see gallery</Link></span>
+            Different categories of Books:- <span className="text-xs font-normal"> <Link to='/lab-and-facilties'>see gallery</Link></span>
           </h4>
           <table className="table  w-full">
             <tbody>

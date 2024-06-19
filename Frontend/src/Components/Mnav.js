@@ -14,7 +14,7 @@ const ourschool = [
   { name: "Achievements", href: "/achievements" },
   { name: "Activities", href: "/activities" },
   { name: "Certificates", href: "/our_certificates" },
-  { name: "Mandatory Public Disclosure", href: "/school_disclosure" },
+  { name: "Mandatory Public Disclosure", href: "/disclosure" },
   { name: "Our Video", href: "/our_video" },
 ];
 const management = [

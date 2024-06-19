@@ -181,6 +181,23 @@ const AdminPageLayout = () => {
                         <span className="ml-3">Delete Form</span>
                       </Link>
                     </li>
+                    <li>
+                      <Link
+                        to="/adminfees"
+                        className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-blue dark:hover:bg-gray-700"
+                      >
+                        <svg
+                          className="w-5 h-5 text-white transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="currentColor"
+                          viewBox="0 0 18 18"
+                        >
+                          {/* Your icon */}
+                        </svg>
+                        <span className="ml-3">Fees Structure</span>
+                      </Link>
+                    </li>
                   </ul>
                 )}
               </li>

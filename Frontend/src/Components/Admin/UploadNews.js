@@ -1,6 +1,6 @@
 import React from "react";
 import AdminPageLayout from "./AdminPageLayout";
-import { uploadCarousel } from "../../Actions/carousel";
+import { uploadDocuments } from "../../Actions/documents";
 import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 import ErrorAlert from "../ErrorAlert";
@@ -8,39 +8,45 @@ import SuccessAlert from "../SuccessAlert";
 import Spinner from "../Spinner";
 import * as Yup from "yup";
 
-export default function UploadCarousel() {
-  const { loading, error, message } = useSelector((state) => state.carousels);
+export default function UploadNews() {
+  const { loading, error, message } = useSelector((state) => state.documents);
   const token = localStorage.getItem("token");
   const dispatch = useDispatch();
 
   const initialValues = {
     file: null,
-    slide: "",
+    date: "",
+    description: "",
   };
 
   const validationSchema = Yup.object().shape({
-    slide: Yup.string().required("Slide number is required"),
+    date: Yup.string().required("Date is required"),
+    description: Yup.string().required("Description is required"),
   });
 
   const formik = useFormik({
     initialValues,
     validationSchema,
     onSubmit: async (values) => {
-
+      
       const formData = new FormData();
       formData.append("file", values.file);
-      formData.append("slide", values.slide);
-      dispatch(uploadCarousel({ formData, token }));
+      formData.append("docType", "news");
+      formData.append("date", values.date);
+      formData.append("description", values.description);
+
+      // Dispatch the uploadDocuments action
+      dispatch(uploadDocuments({ formData, token }));
     },
   });
 
   return (
-    <div className="flex items-center lg:mt-10 ">
+    <div className="flex items-center lg:mt-10">
       <AdminPageLayout />
       <div className="w-full flex justify-center items-center">
         <div className="sm:w-4/6 md:w-1/2 lg:w-1/2 rounded">
           <h1 className="text-center my-5 text-xl text-orange font-bold">
-            Upload Carousels
+            Upload News
           </h1>
           {error && <ErrorAlert error={error} />}
           {message && <SuccessAlert message={message} />}
@@ -66,27 +72,45 @@ export default function UploadCarousel() {
             <div>
               <label
                 className="block text-gray-700 text-sm font-bold"
-                htmlFor="slide"
+                htmlFor="description"
               >
-                Slide Number:
+                Description:
               </label>
               <input
                 className="shadow appearance-none border my-2 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                type="number"
-                name="slide"
-                max={5}
-                min={1}
-                value={formik.values.slide}
+                type="text"
+                name="description"
+                value={formik.values.description}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
-              {formik.touched.slide && formik.errors.slide && (
+              {formik.touched.description && formik.errors.description && (
                 <p className="text-red-500 tracking-widest text-xs mt-2">
-                  {formik.errors.slide}
+                  {formik.errors.description}
                 </p>
               )}
             </div>
-         
+            <div>
+              <label
+                className="block text-gray-700 text-sm font-bold"
+                htmlFor="date"
+              >
+                Date:
+              </label>
+              <input
+                className="shadow appearance-none border my-2 rounded w-full px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                type="date"
+                name="date"
+                value={formik.values.date}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+              {formik.touched.date && formik.errors.date && (
+                <p className="text-red-500 tracking-widest text-xs mt-2">
+                  {formik.errors.date}
+                </p>
+              )}
+            </div>
             <button
               
               className={`flex w-full uppercase tracking-widest justify-center rounded ${
